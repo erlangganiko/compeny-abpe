@@ -4,7 +4,7 @@
   --secondary-color: #ff8c00;
   --dark-color: #333;
   --light-color: #f4f4f4;
-  --white-color: #c8c3c3;
+  --white-color: #ffffff; /* Changed for better contrast */
   --yellow-color: #f7b731;
 }
 
@@ -29,9 +29,6 @@ body {
 }
 
 /* Navbar Styles */
-/* CSS styles lainnya tetap sama */
-
-/* Navbar Styles */
 #main-nav {
   position: absolute;
   top: 0;
@@ -44,7 +41,15 @@ body {
 
 .nav-container {
   display: flex;
-  justify-content: space-between; /* Mengatur jarak antara logo dan menu */
+  justify-content: space-between; /* Changed */
+  align-items: center;
+}
+
+/* Logo in Navbar Styling */
+.navbar-logo-placeholder {
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
   align-items: center;
 }
 
@@ -52,11 +57,11 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 25px; /* Jarak antar item menu */
+  gap: 25px;
 }
 
 .nav-links a {
-  color: var(--white-color);
+  color: var(--light-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -71,46 +76,41 @@ body {
 
 .nav-contact-btn {
   background-color: var(--secondary-color);
-  padding: 8px 18px !important; /* !important untuk menimpa padding lain */
+  padding: 8px 18px !important;
   border-radius: 50px;
-  border: none !important; /* !important untuk menimpa border lain */
+  border: none !important;
   transition: all 0.3s ease;
 }
 
 .nav-contact-btn:hover {
   background-color: var(--white-color);
-  color: var(
-    --secondary-color
-  ) !important; /* !important untuk menimpa warna text saat hover */
-}
-/* Hamburger Menu & Close Button Styling */
-.hamburger-menu {
-  display: none; /* Sembunyikan di desktop */
-  width: 35px;
-  height: 35px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-  cursor: pointer;
+  color: var(--secondary-color) !important;
 }
 
+/* Hamburger & Close Button */
+.hamburger-menu,
 .close-btn {
-  display: none; /* Sembunyikan di desktop */
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 3rem;
-  cursor: pointer;
+  display: none;
 }
-/* Sticky Navbar state (controlled by JS) */
+
+/* Sticky Navbar State */
 #main-nav.sticky {
   position: fixed;
   background-color: var(--white-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#main-nav.sticky .nav-logo,
+#main-nav.sticky .navbar-logo-placeholder {
+  opacity: 1; /* Show logo on sticky */
+}
+
+#main-nav.sticky .navbar-logo-placeholder .logo-main-text {
+  color: var(--secondary-color);
+}
+#main-nav.sticky .navbar-logo-placeholder .logo-sub-text {
+  color: var(--primary-color);
+}
+
 #main-nav.sticky .nav-links a {
   color: var(--dark-color);
 }
@@ -129,45 +129,13 @@ body {
   background-color: var(--dark-color);
   color: var(--white-color) !important;
 }
-/* Sisa kode CSS lainnya tetap sama */
-#main-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-  padding: 15px 0;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  align-items: center;
-}
-
-.nav-placeholder {
-  color: var(--white-color);
-  font-weight: bold;
-}
-
-/* Sticky Navbar state (controlled by JS) */
-#main-nav.sticky {
-  position: fixed;
-  background-color: var(--white-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#main-nav.sticky .nav-placeholder {
-  color: var(--dark-color);
-}
 
 /* Hero Section */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop");
   height: 100vh;
-  background-attachment: fixed;
+  background-attachment: fixed; /* This creates the parallax effect */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -179,25 +147,48 @@ body {
 }
 
 .hero-content {
-  padding-top: 80px; /* Give space for the navbar */
+  padding-top: 60px;
 }
 
+/* Logo Styling */
 .logo-container {
   margin-bottom: 30px;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.logo-container.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 .logo-placeholder {
-  width: 150px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  color: var(--dark-color);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.navbar-logo-placeholder,
+.logo-placeholder {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.logo-main-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: 1px;
+}
+.logo-sub-text {
+  font-size: 0.9rem;
+  color: var(--light-color);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+#main-nav.sticky .logo-main-text {
+  font-size: 1.5rem;
+}
+#main-nav.sticky .logo-sub-text {
+  font-size: 0.7rem;
 }
 
 .hero h1 {
@@ -205,6 +196,7 @@ body {
   font-weight: 700;
   margin-bottom: 10px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
 }
 
 .hero p {
@@ -215,19 +207,17 @@ body {
   margin-right: auto;
 }
 
-/* --- Improved Button Styles --- */
 .hero-buttons .btn {
   color: var(--white-color);
   text-decoration: none;
   padding: 14px 28px;
-  border-radius: 50px; /* Rounded corners */
+  border-radius: 8px; /* Matched from image */
   margin: 5px;
   font-weight: bold;
   font-size: 1rem;
   border: 2px solid transparent;
   transition: all 0.3s ease;
   display: inline-block;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -241,30 +231,35 @@ body {
 
 .hero-buttons .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   filter: brightness(1.1);
 }
-/* --- End of Improved Button Styles --- */
 
-/* Why Us Section - Black & White */
+/* Verification Badge */
+.verification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 8px;
+  color: var(--white-color);
+  font-weight: 500;
+}
+
+/* Why Us Section */
 .why-us {
   padding: 60px 0;
   background: var(--white-color);
-  filter: grayscale(100%);
 }
-
 .why-us h2 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 2rem;
 }
-
 .why-us-content {
   display: flex;
   gap: 30px;
   align-items: center;
 }
-
 .why-us-image {
   flex: 1;
 }
@@ -279,10 +274,9 @@ body {
   flex-direction: column;
   gap: 15px;
 }
-
 .why-us-actions .action-btn {
   display: block;
-  background: #e8491d;
+  background: gray;
   color: var(--white-color);
   text-decoration: none;
   padding: 15px;
@@ -292,7 +286,13 @@ body {
   transition: background-color 0.3s;
 }
 .why-us-actions .action-btn:hover {
-  background: #d43d14;
+  background: gray;
+}
+.why-us-actions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* Features Grid Section */
@@ -306,7 +306,7 @@ body {
   gap: 1rem;
 }
 .grid-item {
-  background: var(--white-color);
+  background: var(--light-color);
   color: var(--dark-color);
   height: 180px;
   display: flex;
@@ -344,61 +344,61 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Tampilkan tombol hamburger dan sembunyikan menu desktop */
   .hamburger-menu {
     display: block;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    cursor: pointer;
   }
-
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 3rem;
+    cursor: pointer;
+    color: var(--white-color);
+  }
   .nav-links {
-    /* --- Ini adalah style untuk menu overlay --- */
     position: fixed;
     top: 0;
-    left: 100%; /* Mulai dari luar layar */
+    left: 100%;
     width: 100%;
     height: 100vh;
-
-    /* Background blur */
     background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
-
-    /* Layout menu */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
-
     transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   }
-
-  /* Style untuk menu ketika aktif (diklik) */
   .nav-links.active {
     left: 0;
   }
-
-  /* Tampilkan tombol close di mobile */
-  .close-btn {
-    display: block;
-  }
-
-  /* Style untuk link di dalam menu overlay */
   .nav-links li a {
     font-size: 1.5rem;
   }
-
   .nav-contact-btn {
     padding: 12px 25px !important;
     font-size: 1.2rem !important;
   }
-
-  /* Sembunyikan menu desktop asli */
-  #main-nav.sticky .nav-links,
-  #main-nav .nav-links,
-  #main-nav.sticky {
+  #main-nav.sticky .nav-links a {
+    color: var(--light-color);
+  }
+  #main-nav.sticky,
+  #main-nav {
     background-color: transparent;
     box-shadow: none;
   }
+  #main-nav.sticky .navbar-logo-placeholder {
+    opacity: 1;
+  } /* Ensure logo is visible on mobile sticky */
 
-  /* Ubah ukuran grid di mobile */
   .hero h1 {
     font-size: 2rem;
   }
@@ -409,15 +409,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.hero h1 {
-  font-size: 2rem;
-}
-.why-us-content {
-  flex-direction: column;
-}
-.grid-container {
-  grid-template-columns: repeat(2, 1fr);
-}
+
 @media (max-width: 480px) {
   .grid-container {
     grid-template-columns: 1fr;
