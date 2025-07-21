@@ -3,7 +3,7 @@
   --primary-color: #007bff;
   --secondary-color: #ff8c00;
   --dark-color: #333;
-  --light-color: #f4f4f4;
+  --light-color: #ccc;
   --white-color: #ffffff; /* Changed for better contrast */
   --yellow-color: #f7b731;
 }
@@ -248,7 +248,7 @@ body {
 /* Why Us Section */
 .why-us {
   padding: 60px 0;
-  background: var(--white-color);
+  background: rgba(0, 0, 0, 0.3);
 }
 .why-us h2 {
   text-align: center;
@@ -286,7 +286,8 @@ body {
   transition: background-color 0.3s;
 }
 .why-us-actions .action-btn:hover {
-  background: gray;
+  background: blue;
+  transition: background-color 0.5s;
 }
 .why-us-actions {
   flex: 1;
@@ -298,7 +299,7 @@ body {
 /* Features Grid Section */
 .features-grid {
   padding: 60px 0;
-  background: #111;
+  background: rgba(0, 0, 0, 0.3);
 }
 .grid-container {
   display: grid;
