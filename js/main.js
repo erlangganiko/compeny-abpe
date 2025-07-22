@@ -1,6 +1,32 @@
 // Menunggu hingga seluruh konten halaman (DOM) selesai dimuat sebelum menjalankan skrip.
-// Ini adalah praktik terbaik untuk menghindari error.
 document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Mengatur fungsionalitas loading screen.
+   * Loading screen akan hilang setelah beberapa detik dan menampilkan konten utama.
+   */
+  const loadingScreen = document.getElementById("loading-screen");
+  const mainContent = document.getElementById("main-content");
+
+  if (loadingScreen && mainContent) {
+    // Atur waktu tampil loading screen (misal: 3 detik)
+    setTimeout(() => {
+      loadingScreen.classList.add("hidden");
+      // Tampilkan konten utama dengan efek fade-in sederhana
+      mainContent.style.display = "block";
+      mainContent.style.animation = "fadeIn 0.5s ease-in-out";
+    }, 2000); // 2000 milidetik = 2 detik
+  }
+
+  // Tambahkan keyframes untuk animasi fadeIn ke dalam style
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  `;
+  document.head.appendChild(style);
+
   /**
    * Mengatur perilaku 'sticky' untuk navbar saat pengguna menggulir halaman.
    * Navbar akan menjadi 'sticky' setelah posisi scroll melewati bagian bawah logo di hero section.

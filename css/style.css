@@ -27,7 +27,46 @@ body {
   overflow: hidden;
   padding: 0 20px;
 }
+/*Loading Screen*/
 
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Warna latar belakang putih */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#loading-screen img {
+  max-width: 150px; /* Atur ukuran logo loading */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Animasi sederhana untuk logo */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /* Navbar Styles */
 #main-nav {
   position: absolute;
@@ -36,7 +75,7 @@ body {
   width: 100%;
   z-index: 1000;
   transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 .nav-container {
@@ -51,8 +90,12 @@ body {
   transition: opacity 0.4s ease-in-out;
   display: flex;
   align-items: center;
+  width: 200px;
 }
-
+.navbar-logo-placeholder img {
+  max-width: 190px;
+  height: 120px;
+}
 .nav-links {
   list-style: none;
   display: flex;
@@ -89,6 +132,7 @@ body {
 
 /* Hamburger & Close Button */
 .hamburger-menu,
+.mobile-nav-logo,
 .close-btn {
   display: none;
 }
@@ -98,6 +142,7 @@ body {
   position: fixed;
   background-color: var(--white-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: -30px;
 }
 
 #main-nav.sticky .navbar-logo-placeholder {
@@ -133,7 +178,7 @@ body {
 /* Hero Section */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop");
+    url("../assets/bg-compeny.webp");
   height: 100vh;
   background-attachment: fixed; /* This creates the parallax effect */
   background-position: center;
@@ -172,18 +217,11 @@ body {
   align-items: flex-start;
   gap: 2px;
 }
-.logo-main-text {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--secondary-color);
-  letter-spacing: 1px;
+.logo-placeholder img {
+  max-width: 200px;
+  height: auto;
 }
-.logo-sub-text {
-  font-size: 0.9rem;
-  color: var(--light-color);
-  font-weight: 600;
-  letter-spacing: 2px;
-}
+
 #main-nav.sticky .logo-main-text {
   font-size: 1.5rem;
 }
@@ -354,6 +392,18 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     cursor: pointer;
+  }
+  /* Style untuk Logo di Menu Mobile */
+  .mobile-nav-logo {
+    display: block;
+    margin-bottom: 40px; /* Memberi jarak antara logo dan link "Home" */
+    list-style: none; /* Menghilangkan bullet point jika ada */
+  }
+
+  .mobile-nav-logo img {
+    display: block;
+    max-width: 180px; /* Atur ukuran maksimum logo sesuai selera */
+    height: auto;
   }
   .close-btn {
     display: block;
