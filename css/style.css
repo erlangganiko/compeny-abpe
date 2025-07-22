@@ -849,7 +849,7 @@ body {
     font-size: 1.2rem !important;
   }
   #main-nav.sticky .nav-links a {
-    color: var(--light-color);
+    color: var(--white-color);
   }
   #main-nav.sticky,
   #main-nav {

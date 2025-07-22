@@ -52,22 +52,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
+ document.addEventListener("DOMContentLoaded", () => {
+  /**
    * Mengatur fungsionalitas menu hamburger untuk perangkat mobile.
-   * Membuka dan menutup menu navigasi saat ikon hamburger atau tombol close diklik.
+   * - Membuka/menutup menu saat ikon hamburger diklik (toggle).
+   * - Menutup menu saat area di luar navigasi diklik.
    */
   const hamburger = document.querySelector(".hamburger-menu");
   const navLinks = document.querySelector(".nav-links");
-  const closeBtn = document.querySelector(".close-btn");
 
-  if (hamburger && navLinks && closeBtn) {
-    // Buka menu ketika hamburger diklik
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.add("active");
+  // Pastikan kedua elemen ada sebelum menambahkan event listener
+  if (hamburger && navLinks) {
+    // 1. Buka/tutup menu ketika ikon hamburger diklik
+    hamburger.addEventListener("click", (event) => {
+      // Gunakan toggle untuk menambahkan/menghapus kelas 'active'
+      navLinks.classList.toggle("active");
+      // Hentikan event agar tidak langsung ditangkap oleh document
+      event.stopPropagation();
     });
 
-    // Tutup menu ketika tombol close diklik
-    closeBtn.addEventListener("click", () => {
-      navLinks.classList.remove("active");
+    // 2. Tutup menu jika klik di luar area navigasi
+    document.addEventListener("click", (event) => {
+      // Cek apakah menu sedang aktif dan klik terjadi di luar menu
+      if (
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(event.target)
+      ) {
+        navLinks.classList.remove("active");
+      }
     });
   }
 });
