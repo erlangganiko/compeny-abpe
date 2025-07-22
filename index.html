@@ -1,298 +1,363 @@
 <!DOCTYPE html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/loading-screen.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MNI" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Company Profile</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/loading-screen.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="MNI" />
-  <link rel="manifest" href="assets/favicon/site.webmanifest" />
-</head>
+  <body>
+    <div id="loading-screen">
+      <img src="assets/loading-screen-compeny.webp" alt="Loading..." />
+    </div>
 
-<body>
-  <div id="loading-screen">
-    <img src="assets/loading-screen-compeny.webp" alt="Loading..." />
-  </div>
-
-  <div id="main-content" style="display: none">
-    <nav id="main-nav">
-      <div class="container nav-container">
-        <div id="navbar-logo" class="navbar-logo-placeholder">
-          <img src="assets/logo-compeny.webp" alt="" />
-        </div>
-        <ul class="nav-links">
-          <li class="mobile-nav-logo">
-            <img src="assets/logo-compeny.webp" alt="Company Logo" />
-          </li>
-
-          <li class="close-btn"><a>&times;</a></li>
-          <li><a href="#">Home</a></li>
-          <li><a href="#AboutUS">About Us</a></li>
-          <li><a href="#product">Product</a></li>
-          <li><a href="#mitra">Mitra</a></li>
-          <li><a href="#testimoni">Testimoni</a></li>
-          <li><a href="#artikel">Artikel</a></li>
-          <li><a href="#" class="nav-contact-btn">Contact</a></li>
-        </ul>
-        <div class="hamburger-menu"></div>
-      </div>
-    </nav>
-
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div id="hero-logo" class="logo-container">
-          <div class="logo-placeholder">
+    <div id="main-content" style="display: none">
+      <nav id="main-nav">
+        <div class="container nav-container">
+          <div id="navbar-logo" class="navbar-logo-placeholder">
             <img src="assets/logo-compeny.webp" alt="" />
           </div>
-        </div>
-        <h1>TEMUKAN JASA TERBAIK. <br />BANGUN KARIER SEBAGAI MITRA</h1>
-        <p>
-          Mitra.ID menghubungkan kamu dengan ribuan pelanggan dan mitra jasa
-          terpercaya.
-        </p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Cari Jasa</a>
-          <a href="#" class="btn btn-secondary">Gabung Mitra</a>
-        </div>
-        <div class="verification-badge">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-              fill="#34c759"></path>
-          </svg>
-          <span>Terverifikasi Aman & Terpercaya</span>
-        </div>
-      </div>
-    </section>
+          <ul class="nav-links">
+            <li class="mobile-nav-logo">
+              <img src="assets/logo-compeny.webp" alt="Company Logo" />
+            </li>
 
-    <section class="why-us" id="AboutUs">
-  <div class="container">
-    <h2>KENAPA MEMILIH KAMI?</h2>
-    <div class="social-icons">
-      <a href="mailto:youremail@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.youtube.com/yourchannel" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-    </div>
-    <div class="why-us-content">
-      <div class="why-us-image">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop" alt="Tim Bekerja" />
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop" alt="Tim Bekerja" />
-      </div>
-      <div class="why-us-actions">
-        <a href="#" class="action-btn">WHAT WE DO</a>
-        <a href="#" class="action-btn">OUR WORK</a>
-        <a href="#" class="action-btn">SERVICES</a>
-        <a href="#" class="action-btn">BOOK A MEETING</a>
-        <a href="#" class="action-btn">BLOG</a>
-        <a href="#" class="action-btn">CONTACT US</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section class="partners-section" id="product">
-      <div class="container">
-        <div class="partners-grid">
-          <div class="partner-card bg-light">
-            <h2 class="mitra-kami-title">
-              <span class="line-1">MITRA</span><br />
-              <span class="line-2">KAMI</span>
-            </h2>
-          </div>
-          <div class="partner-card bg-light">
-            <img src="assets/ABPE-Logo.webp" alt="Logo A"
-              class="logo" />
-          </div>
-          <div class="partner-card bg-orange">
-            <img src="assets/logoAc1.png" alt="Logo ProaCleaning"
-              class="logo" />
-          </div>
-          <div class="partner-card bg-light">
-            <img src="assets/coal-logo.webp" alt="Logo CBA" class="logo" />
-          </div>
-          <div class="partner-card bg-light">
-            <h3>Team Updates</h3>
-          </div>
-          <div class="partner-card bg-orange">
-            <h3>Annual Report</h3>
-          </div>
-          <div class="partner-card bg-light">
-            <h3>Property Listings</h3>
-          </div>
-          <div class="partner-card bg-orange">
-            <h3>Bergabung<br />dengan kami</h3>
-          </div>
+            <li class="close-btn"><a>&times;</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#AboutUS">About Us</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#mitra">Mitra</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#" class="nav-contact-btn">Contact</a></li>
+          </ul>
+          <div class="hamburger-menu"></div>
         </div>
-      </div>
-    </section>
+      </nav>
 
-    <section class="join-us-section" id="mitra">
-      <div class="container">
-        <div class="join-us-header">
-          <h2 class="title">Jadi Mitra Kami</h2>
-          <p class="subtitle">
-            Stay on top of all the latest products and features
+      <section class="hero" id="hero">
+        <div class="hero-content">
+          <div id="hero-logo" class="logo-container">
+            <div class="logo-placeholder">
+              <img src="assets/logo-compeny.webp" alt="" />
+            </div>
+          </div>
+          <h1>TEMUKAN JASA TERBAIK. <br />BANGUN KARIER SEBAGAI MITRA</h1>
+          <p>
+            Mitra.ID menghubungkan kamu dengan ribuan pelanggan dan mitra jasa
+            terpercaya.
           </p>
-        </div>
-        <div class="steps-container">
-          <div class="step-card">
-            <div class="step-header">
-              <span>Daftar</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-                alt="Video Pendaftaran" />
-              <div class="play-button"><i class="fas fa-play"></i></div>
-            </div>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Cari Jasa</a>
+            <a href="#" class="btn btn-secondary">Gabung Mitra</a>
           </div>
-          <div class="step-card">
-            <div class="step-header">
-              <span>Verifikasi</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop"
-                alt="Video Verifikasi" />
-              <div class="play-button"><i class="fas fa-play"></i></div>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-header">
-              <span>Aktivasi Layanan</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop"
-                alt="Video Aktivasi Layanan" />
-              <div class="play-button"><i class="fas fa-play"></i></div>
-            </div>
+          <div class="verification-badge">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                fill="#34c759"
+              ></path>
+            </svg>
+            <span>Terverifikasi Aman & Terpercaya</span>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="testimonials-section" id="testimoni">
-      <div class="container">
-        <h2 class="section-title">Testimoni Mitra Kami</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
+      <section class="why-us" id="AboutUs">
+        <div class="container">
+          <h2>KENAPA MEMILIH KAMI?</h2>
+          <div class="social-icons">
+            <a href="mailto:youremail@example.com" class="social-icon"
+              ><i class="fas fa-envelope"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/yourpage"
+              target="_blank"
+              class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/yourchannel"
+              target="_blank"
+              class="social-icon"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+          <div class="why-us-content">
+            <div class="why-us-image">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
-                alt="Fender Logo" class="company-logo" />
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
+                alt="Tim Bekerja"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
+                alt="Tim Bekerja"
+              />
             </div>
-            <p class="quote-text">
-              Avo saved my sanity when juggling our tracking plans. We now
-              generate analytics within minutes of a new feature launch
-              because of the pre-work we've done in Avo.
+            <div class="why-us-actions">
+              <a href="#" class="action-btn">WHAT WE DO</a>
+              <a href="#" class="action-btn">OUR WORK</a>
+              <a href="#" class="action-btn">SERVICES</a>
+              <a href="#" class="action-btn">BOOK A MEETING</a>
+              <a href="#" class="action-btn">BLOG</a>
+              <a href="#" class="action-btn">CONTACT US</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners-section" id="product">
+        <div class="container">
+          <div class="partners-grid">
+            <div class="partner-card bg-light">
+              <img src="assets/logo-compeny.webp" alt="" class="logo" />
+            </div>
+            <div class="partner-card bg-light">
+              <img src="assets/ABPE-Logo.webp" alt="Logo A" class="logo" />
+            </div>
+            <div class="partner-card bg-orange">
+              <img
+                src="assets/logoAc1.png"
+                alt="Logo ProaCleaning"
+                class="logo"
+              />
+            </div>
+            <div class="partner-card bg-light">
+              <img src="assets/coal-logo.webp" alt="Logo CBA" class="logo" />
+            </div>
+            <div class="partner-card bg-light">
+              <h3>Team Updates</h3>
+            </div>
+            <div class="partner-card bg-orange">
+              <h3>Annual Report</h3>
+            </div>
+            <div class="partner-card bg-light">
+              <h3>Property Listings</h3>
+            </div>
+            <div class="partner-card bg-orange">
+              <h3>Bergabung<br />dengan kami</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="join-us-section" id="mitra">
+        <div class="container">
+          <div class="join-us-header">
+            <h2 class="title">Jadi Mitra Kami</h2>
+            <p class="subtitle">
+              Stay on top of all the latest products and features
             </p>
-            <a href="#" class="review-link">Read full G2 review →</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=claire" alt="Claire Armstrong" class="author-avatar" />
-              <div class="author-details">
-                <h4>Claire Armstrong</h4>
-                <p>Director of Digital Product</p>
+          </div>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-header">
+                <span>Daftar</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
+                  alt="Video Pendaftaran"
+                />
+                <div class="play-button"><i class="fas fa-play"></i></div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span>Verifikasi</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop"
+                  alt="Video Verifikasi"
+                />
+                <div class="play-button"><i class="fas fa-play"></i></div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span>Aktivasi Layanan</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <img
+                  src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop"
+                  alt="Video Aktivasi Layanan"
+                />
+                <div class="play-button"><i class="fas fa-play"></i></div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="testimonial-card">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
-                alt="Culture Amp Logo" class="company-logo" style="filter: invert(1)" />
-            </div>
-            <p class="quote-text">
-              Buying Avo was possibly the most impactful decision I've made. I
-              don't know how product companies do any analytics without Avo.
-              It's become the foundation of our analytics.
-            </p>
-            <a href="#" class="review-link">Read full G2 review →</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=nicholas" alt="Nicholas Threapleton" class="author-avatar" />
-              <div class="author-details">
-                <h4>Nicholas Threapleton</h4>
-                <p>Lead Product Analyst</p>
+      <section class="testimonials-section" id="testimoni">
+        <div class="container">
+          <h2 class="section-title">Testimoni Mitra Kami</h2>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
+                  alt="Fender Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                Avo saved my sanity when juggling our tracking plans. We now
+                generate analytics within minutes of a new feature launch
+                because of the pre-work we've done in Avo.
+              </p>
+              <a href="#" class="review-link">Read full G2 review →</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=claire"
+                  alt="Claire Armstrong"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Claire Armstrong</h4>
+                  <p>Director of Digital Product</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-card">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
-                alt="Zenbusiness Logo" class="company-logo" />
+            <div class="testimonial-card">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
+                  alt="Culture Amp Logo"
+                  class="company-logo"
+                  style="filter: invert(1)"
+                />
+              </div>
+              <p class="quote-text">
+                Buying Avo was possibly the most impactful decision I've made. I
+                don't know how product companies do any analytics without Avo.
+                It's become the foundation of our analytics.
+              </p>
+              <a href="#" class="review-link">Read full G2 review →</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=nicholas"
+                  alt="Nicholas Threapleton"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Nicholas Threapleton</h4>
+                  <p>Lead Product Analyst</p>
+                </div>
+              </div>
             </div>
-            <p class="quote-text">
-              The best data governance platform for your analytics events.
-              Overall I'm very happy with the product and our data quality
-              improves on a daily basis.
-            </p>
-            <a href="#" class="review-link">Read full G2 review →</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=tomi" alt="Tomi Keah" class="author-avatar" />
-              <div class="author-details">
-                <h4>Tomi Keah</h4>
-                <p>Senior Data Analyst</p>
+
+            <div class="testimonial-card">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
+                  alt="Zenbusiness Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                The best data governance platform for your analytics events.
+                Overall I'm very happy with the product and our data quality
+                improves on a daily basis.
+              </p>
+              <a href="#" class="review-link">Read full G2 review →</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=tomi"
+                  alt="Tomi Keah"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Tomi Keah</h4>
+                  <p>Senior Data Analyst</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="article-section" id="artikel">
-      <div class="container">
-        <div class="article-layout">
-          <div class="article-image-container">
-            <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-              alt="Man at POS system" class="main-image" />
+      <section class="article-section" id="artikel">
+        <div class="article-header">
+          <h2 class="title">Artikel Kami</h2>
+        </div>
+        <div class="container">
+          <div class="article-layout">
+            <div class="article-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                alt="Man at POS system"
+                class="main-image"
+              />
 
-            <div class="info-box info-box-inventory">
-              <div class="label">Inventory Stock</div>
-              <div class="value">4,862</div>
+              <div class="info-box info-box-inventory">
+                <div class="label">Inventory Stock</div>
+                <div class="value">4,862</div>
+              </div>
+              <div class="info-box info-box-outofstock">
+                <div class="label">Out of Stock</div>
+                <div class="value">290</div>
+              </div>
+              <div class="info-box info-box-expired">
+                <div class="label">Expired</div>
+                <div class="value">1,521</div>
+              </div>
             </div>
-            <div class="info-box info-box-outofstock">
-              <div class="label">Out of Stock</div>
-              <div class="value">290</div>
+            <div class="article-content">
+              <div class="meta-info">
+                <span class="news-tag">News!</span>
+                <span>8 mins read</span>
+              </div>
+              <h2 class="article-title">
+                Unlocking Efficiency: The Power Of A Modern POS System
+              </h2>
+              <p class="article-excerpt">
+                In today's fast-paced business landscape, efficiency is key to
+                success. From small local shops to large-scale enterprises,
+                businesses are constantly seeking ways to streamline their
+                operations and enhance customer experi...
+              </p>
+              <a href="#" class="read-more-link">Read More →</a>
             </div>
-            <div class="info-box info-box-expired">
-              <div class="label">Expired</div>
-              <div class="value">1,521</div>
-            </div>
-          </div>
-          <div class="article-content">
-            <div class="meta-info">
-              <span class="news-tag">News!</span>
-              <span>8 mins read</span>
-            </div>
-            <h2 class="article-title">
-              Unlocking Efficiency: The Power Of A Modern POS System
-            </h2>
-            <p class="article-excerpt">
-              In today's fast-paced business landscape, efficiency is key to
-              success. From small local shops to large-scale enterprises,
-              businesses are constantly seeking ways to streamline their
-              operations and enhance customer experi...
-            </p>
-            <a href="#" class="read-more-link">Read More →</a>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <script src="js/main.js"></script>
-</body>
-
+      </section>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
 </html>

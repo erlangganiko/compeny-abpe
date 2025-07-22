@@ -283,7 +283,6 @@ body {
   font-weight: 500;
 }
 
-
 /* Why Us Section */
 .why-us {
   padding: 60px 0;
@@ -345,7 +344,9 @@ body {
 }
 
 .social-icon {
-  color: var(--dark-color); /* Inherit default text color or set a specific one */
+  color: var(
+    --dark-color
+  ); /* Inherit default text color or set a specific one */
   font-size: 30px; /* Adjust icon size as needed */
   margin: 0 15px; /* Spacing between icons */
   transition: color 0.3s ease;
@@ -655,6 +656,16 @@ body {
 /* --- 4. SEKSI ARTIKEL --- */
 .article-section {
   background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.article-section .article-header {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a4a4a;
 }
 
 .article-layout {
