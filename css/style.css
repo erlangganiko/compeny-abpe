@@ -283,13 +283,14 @@ body {
   font-weight: 500;
 }
 
+
 /* Why Us Section */
 .why-us {
   padding: 60px 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: white;
 }
 .why-us h2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
   font-size: 2rem;
 }
@@ -300,6 +301,10 @@ body {
 }
 .why-us-image {
   flex: 1;
+  /* Add these styles for a 2-column grid within why-us-image */
+  display: grid; /* */
+  grid-template-columns: repeat(2, 1fr); /* */
+  gap: 15px; /* */
 }
 .why-us-image img {
   width: 100%;
@@ -314,7 +319,7 @@ body {
 }
 .why-us-actions .action-btn {
   display: block;
-  background: gray;
+  background: var(--secondary-color);
   color: var(--white-color);
   text-decoration: none;
   padding: 15px;
@@ -324,7 +329,7 @@ body {
   transition: background-color 0.3s;
 }
 .why-us-actions .action-btn:hover {
-  background: blue;
+  background: var(--secondary-color);
   transition: background-color 0.5s;
 }
 .why-us-actions {
@@ -332,6 +337,22 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.social-icons {
+  text-align: center;
+  margin-bottom: 30px; /* Adjust spacing as needed */
+}
+
+.social-icon {
+  color: var(--dark-color); /* Inherit default text color or set a specific one */
+  font-size: 30px; /* Adjust icon size as needed */
+  margin: 0 15px; /* Spacing between icons */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--secondary-color); /* Change color on hover */
 }
 
 /* Features Grid Section */
