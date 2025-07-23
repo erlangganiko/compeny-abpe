@@ -578,6 +578,7 @@ body {
 /* --- 3. SEKSI TESTIMONI --- */
 .testimonials-section {
   background-color: #f9f9f9;
+  padding: 60px 0; /* Tambahkan padding agar konsisten */
 }
 
 .testimonials-section .section-title {
@@ -587,13 +588,27 @@ body {
   margin-bottom: 50px;
 }
 
+.testimonials-slider-wrapper {
+  overflow: hidden; /* Sembunyikan kartu di luar tampilan */
+  position: relative;
+}
+
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex; /* Ubah menjadi flexbox untuk tata letak horizontal */
+  /* grid-template-columns: repeat(3, 1fr);  Hapus baris ini */
   gap: 25px;
+  /* Izinkan item grid mengambil lebar kontennya saja */
+  width: max-content; /* Ini kunci untuk pengguliran horizontal */
+  animation: slideTestimonials 20s linear infinite; /* Sesuaikan durasi sesuai kebutuhan */
+}
+
+.testimonials-grid:hover {
+  animation-play-state: paused;
 }
 
 .testimonial-card {
+  flex-shrink: 0; /* Mencegah kartu menyusut */
+  width: 350px; /* Beri lebar tetap pada setiap kartu, sesuaikan jika perlu */
   background-color: #2d2d2d;
   color: #efefef;
   padding: 35px;
@@ -602,6 +617,20 @@ body {
   flex-direction: column;
 }
 
+/* Animasi Keyframe untuk Geser */
+@keyframes slideTestimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Untuk loop yang mulus, nilai ini harus menggeser sejauh total lebar dari semua kartu asli.
+       Karena kita akan menduplikasi kartu di JS, -50% akan menggeser melalui satu set duplikasi.
+       Jika ada 3 kartu dan Anda menduplikasi 1x, total ada 6 kartu.
+       Menggeser -50% akan menggeser 3 kartu.
+    */
+    transform: translateX(-50%);
+  }
+}
 .testimonial-card .card-header {
   display: flex;
   justify-content: space-between;
@@ -661,6 +690,114 @@ body {
   margin: 0;
   font-size: 0.9rem;
   color: #bdbdbd;
+}
+
+/* Styling untuk Pop-up Testimoni */
+.popup-overlay {
+  display: none; /* Sembunyikan secara default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Pastikan di atas elemen lain */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  background-color: #333; /* Warna gelap agar serasi dengan kartu testimoni */
+  color: #efefef;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px; /* Batasi lebar pop-up */
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.popup-overlay.active .popup-content {
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Gaya baru untuk bagian atas pop-up (icon quote & logo perusahaan) */
+.popup-top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Sejajarkan di bagian atas */
+  margin-bottom: 20px; /* Jarak sebelum info penulis */
+}
+
+.popup-top-info .quote-icon {
+  font-size: 2.5rem; /* Sesuaikan ukuran ikon kutipan */
+  color: #555; /* Sesuaikan warna ikon kutipan */
+}
+
+.popup-company-logo {
+  max-height: 25px; /* Sesuaikan ukuran logo perusahaan */
+  width: auto;
+}
+
+/* Gaya untuk info penulis (avatar, nama, jabatan) */
+.popup-author-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+  margin-bottom: 25px;
+}
+
+.popup-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.popup-author-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.popup-author-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #bdbdbd;
+}
+
+.popup-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #efefef;
+  margin-bottom: 0;
 }
 
 /* --- 4. SEKSI ARTIKEL --- */
@@ -800,6 +937,13 @@ body {
     max-width: 100%;
     text-align: center;
   }
+  .testimonials-grid {
+    animation: slideTestimonials 25s linear infinite; /* Sesuaikan kecepatan jika jumlah kartu lebih sedikit */
+  }
+  .testimonial-card {
+    width: 320px; /* Sesuaikan lebar kartu untuk layar yang lebih kecil */
+  }
+ 
 }
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -890,9 +1034,58 @@ body {
     margin-bottom: 15px;
     width: auto;
   }
-  .article-image-container {
-    display: flex;
-    flex-direction: column;
+  .testimonials-grid {
+    animation: slideTestimonials 30s linear infinite; /* Sesuaikan kecepatan */
+  }
+  .testimonial-card {
+    width: 90vw; /* Buat kartu mengambil hampir seluruh lebar viewport pada perangkat seluler */
+    margin: 0 10px; /* Tambahkan sedikit margin untuk spasi */
+  }
+  /* Hapus pengaturan grid-template-columns yang ada untuk testimonials-grid di media query */
+  .testimonials-section .testimonials-grid {
+    grid-template-columns: unset; /* Timpa pengaturan grid sebelumnya */
+  }
+}
+/* Media Queries untuk Responsif Pop-up */
+@media (max-width: 600px) {
+  .popup-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .popup-author-info {
+    flex-direction: row;
+    text-align: left;
+    gap: 15px;
+  }
+
+  .popup-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .popup-author-details h4 {
+    font-size: 1rem;
+  }
+
+  .popup-author-details p {
+    font-size: 0.9rem;
+  }
+
+  .popup-quote {
+    font-size: 1rem;
+  }
+
+  .close-btn {
+    font-size: 1.8rem;
+    top: 10px;
+    right: 15px;
+  }
+
+  .popup-top-info {
+    flex-direction: row; /* Pastikan tetap baris */
+    align-items: center; /* Sejajarkan tengah secara vertikal */
+    justify-content: space-between; /* Pastikan tetap terpisah */
   }
 }
 
