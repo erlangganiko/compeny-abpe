@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Tampilkan konten utama dengan efek fade-in sederhana
       mainContent.style.display = "block";
       mainContent.style.animation = "fadeIn 0.5s ease-in-out";
-    }, 2000); // 2000 milidetik = 2 detik
+    }, 1000); // 2000 milidetik = 2 detik
   }
 
   // Tambahkan keyframes untuk animasi fadeIn ke dalam style
