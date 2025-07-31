@@ -223,7 +223,7 @@ body {
   /* Properti efek kaca DIHAPUS dari sini */
 
   /* Properti asli Anda untuk layout */
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 /* Logo Styling */
@@ -249,8 +249,7 @@ body {
   gap: 2px;
 }
 .logo-placeholder img {
-  max-width: 200px;
-  height: auto;
+  max-width: 400px;
 }
 
 #main-nav.sticky .logo-main-text {
@@ -260,12 +259,13 @@ body {
   font-size: 0.7rem;
 }
 
-.hero h1 {
+.hero .hero-content h1 {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 10px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   line-height: 1.2;
+  margin-top: -90px;
 }
 
 .hero p {
@@ -1009,6 +1009,9 @@ body {
     padding: 8px 25px !important;
     font-size: 1.2rem !important;
   }
+  #main-nav.sticky .hamburger-menu {
+    margin-left: 300px;
+  }
   #main-nav.sticky .nav-links a {
     color: var(--white-color);
   }
@@ -1019,6 +1022,7 @@ body {
   }
   #main-nav.sticky .navbar-logo-placeholder {
     opacity: 1;
+    display: none;
   } /* Ensure logo is visible on mobile sticky */
 
   .hero h1 {
