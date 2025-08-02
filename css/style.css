@@ -185,7 +185,7 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../assets/bg-compeny.webp");
   height: 100vh;
-  background-attachment: fixed; /* This creates the parallax effect */
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -193,42 +193,47 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   position: relative;
+  overflow: hidden; /* Mencegah elemen keluar saat animasi */
 }
-/* Lapisan Kaca Buram untuk Seluruh Background */
+
+/* Lapisan Kaca Buram */
 .hero::before {
-  content: ""; /* Wajib ada untuk pseudo-element */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
-  /* Efek Kaca */
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-
-  /* Beri sedikit warna gelap agar teks lebih terbaca */
   background-color: rgba(0, 0, 0, 0.2);
-
-  /* Pastikan lapisan ini di bawah konten */
   z-index: 0;
 }
+
+/* KONTEN HERO UTAMA (GRID LAYOUT) */
 .hero-content {
-  /* PENTING: Mengangkat konten di atas lapisan blur */
   position: relative;
   z-index: 1;
-
-  /* Properti efek kaca DIHAPUS dari sini */
-
-  /* Properti asli Anda untuk layout */
-  padding-top: 40px;
+  width: 85%; /* Sedikit lebih lebar */
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Kolom kiri lebih besar */
+  align-items: center;
+  gap: 40px;
 }
 
-/* Logo Styling */
+/* Wadah untuk Teks di Kolom Kiri */
+.hero-text-content {
+  text-align: left; /* Teks rata kiri */
+}
+
+/* Logo di Kolom Kanan */
 .logo-container {
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0; /* Dihapus karena sudah diatur 'gap' */
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
@@ -237,50 +242,31 @@ body {
   transform: translateY(-20px);
 }
 
-.logo-placeholder {
-  display: inline-flex;
-  align-items: center;
-  font-weight: bold;
-}
-.navbar-logo-placeholder,
-.logo-placeholder {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
 .logo-placeholder img {
-  max-width: 400px;
+  max-width: 550px; /* Ukuran logo bisa disesuaikan */
 }
 
-#main-nav.sticky .logo-main-text {
-  font-size: 1.5rem;
-}
-#main-nav.sticky .logo-sub-text {
-  font-size: 0.7rem;
-}
-
+/* Gaya untuk elemen-elemen di dalam hero */
 .hero .hero-content h1 {
   font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   line-height: 1.2;
-  margin-top: -90px;
+  margin-top: 0; /* Reset margin */
+  margin-bottom: 20px; /* Jarak ke paragraf */
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 550px; /* Batasi lebar paragraf */
 }
 
 .hero-buttons .btn {
   color: var(--white-color);
   text-decoration: none;
   padding: 14px 28px;
-  border-radius: 8px; /* Matched from image */
+  border-radius: 50px; /* Dibuat lebih bulat */
   margin: 5px;
   font-weight: bold;
   font-size: 1rem;
@@ -307,7 +293,7 @@ body {
 .verification-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Ratakan ke kiri */
   margin-top: 25px;
   gap: 8px;
   color: var(--white-color);
@@ -329,16 +315,17 @@ body {
   gap: 30px;
   align-items: center;
 }
-.why-us-video {
+.why-us-img {
   flex: 1;
   /* Add these styles for a 2-column grid within why-us-image */
   display: grid; /* */
   grid-template-columns: repeat(2, 1fr); /* */
   gap: 15px; /* */
 }
-.why-us-video video {
+.why-us-img img {
   width: 100%;
-  height: auto;
+  height: 100%; /* Paksa tinggi gambar untuk mengisi seluruh wadahnya */
+  object-fit: cover; /* Kunci utamanya: Pangkas gambar agar pas tanpa distorsi */
   border-radius: 8px;
 }
 .why-us-actions {
@@ -1025,8 +1012,49 @@ body {
     display: none;
   } /* Ensure logo is visible on mobile sticky */
 
-  .hero h1 {
-    font-size: 2rem;
+  /* Hero Section Responsive Fix */
+  .hero {
+    height: auto; /* Ubah tinggi agar sesuai konten */
+    padding: 140px 0 60px 0; /* Beri ruang di atas dan bawah */
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Ubah jadi 1 kolom */
+    gap: 10px; /* Kurangi jarak antar elemen */
+    width: 90%;
+  }
+
+  /* Pindahkan logo ke atas & teks ke bawah */
+  .logo-container {
+    grid-row: 1; /* Posisikan logo di baris pertama */
+    margin-bottom: 20px; /* Beri jarak ke judul */
+  }
+
+  .hero-text-content {
+    grid-row: 2; /* Posisikan teks di baris kedua */
+    text-align: center; /* Pusatkan semua teks di mobile */
+  }
+
+  /* Kecilkan logo di mobile */
+  .logo-placeholder img {
+    max-width: 250px;
+  }
+
+  /* Pastikan judul tidak terlalu besar */
+  .hero .hero-content h1 {
+    font-size: 2rem; /* Ukuran font judul yang sudah ada di media query Anda */
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .verification-badge {
+    justify-content: center; /* Pusatkan juga badge verifikasi */
+    margin-top: 20px;
   }
   .why-us-content {
     flex-direction: column;
