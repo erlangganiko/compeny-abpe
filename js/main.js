@@ -208,46 +208,166 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   
-  // === Auto-scroll dan grab untuk artikel ===
-const slider = document.getElementById('articleSlider');
-if (slider) {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  // --- Auto-scroll dan grab untuk artikel ---
+const sliderContainer = document.querySelector('.artikel-slider-container');
+if (sliderContainer) {
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+    let autoSlideInterval;
+    const slideSpeed = 3000; // Interval auto-slide dalam milidetik
 
-  slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
+    // Fungsi untuk memulai auto-slide
+    function startAutoSlide() {
+        stopAutoSlide(); // Pastikan tidak ada interval ganda
+        autoSlideInterval = setInterval(() => {
+            const slideDistance = sliderContainer.clientWidth;
+            let newScroll = sliderContainer.scrollLeft + sliderContainer.clientWidth;
 
-  slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('active');
-  });
+            if (newScroll >= sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+                newScroll = 0;
+            }
 
-  slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('active');
-  });
-
-  slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // speed
-    slider.scrollLeft = scrollLeft - walk;
-  });
-
-  // Auto-scroll every 5 seconds
-  setInterval(() => {
-    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-      slider.scrollLeft = 0;
-    } else {
-      slider.scrollLeft += slider.clientWidth;
+            sliderContainer.scrollTo({
+                left: newScroll,
+                behavior: 'smooth'
+            });
+        }, slideSpeed);
     }
-  }, 5000);
+
+    // Fungsi untuk menghentikan auto-slide
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // --- Event Listener untuk Desktop (Mouse) ---
+    sliderContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        stopAutoSlide();
+        sliderContainer.classList.add('is-dragging');
+        startX = e.pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+    });
+
+    sliderContainer.addEventListener('mouseleave', () => {
+        isDragging = false;
+        sliderContainer.classList.remove('is-dragging');
+    });
+
+    sliderContainer.addEventListener('mouseup', () => {
+        isDragging = false;
+        sliderContainer.classList.remove('is-dragging');
+        startAutoSlide();
+    });
+
+    sliderContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        sliderContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // --- Event Listener untuk Mobile (Touch) ---
+    sliderContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        stopAutoSlide();
+        startX = e.touches[0].pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+    });
+
+    sliderContainer.addEventListener('touchend', () => {
+        isDragging = false;
+        startAutoSlide();
+    });
+
+    sliderContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const x = e.touches[0].pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        sliderContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mulai auto-slide saat halaman pertama kali dimuat
+    startAutoSlide();
 }
 
+  // --- Kode untuk Floating WhatsApp dan Bubble Chat ---
+
+  const bubbleTextElement = document.getElementById('bubble-text');
+    const whatsappBtnLink = document.getElementById('whatsapp-btn-link');
+    const bubbleChatLink = document.getElementById('whatsapp-bubble-chat-link');
+
+    // === Simpan nomor WhatsApp dan pesan-pesan yang berbeda di sini ===
+    const whatsappNumber = '6281234567890'; // Ganti dengan nomor WhatsApp Anda
+    
+    // Pesan default saat klik tombol WhatsApp utama
+    const defaultWhatsappMessage = 'Halo, saya ingin bertanya tentang layanan yang tersedia.';
+    
+    // Array objek untuk bubble chat, setiap objek memiliki teks tampilan dan pesan WhatsApp yang unik
+    const rotatingBubbles = [
+        {
+            displayText: "Tertarik jadi Mitra kami? Tanya-tanya dulu aja!",
+            whatsappMessage: "Halo, saya tertarik menjadi Mitra. Mohon info lebih lanjut."
+        },
+        {
+            displayText: "Butuh jasa profesional? Kami siap bantu!",
+            whatsappMessage: "Halo, saya sedang mencari jasa profesional. Tolong berikan rekomendasi."
+        },
+        {
+            displayText: "Konsultasi gratis untuk bisnismu, yuk!",
+            whatsappMessage: "Halo, saya ingin konsultasi gratis mengenai bisnis saya."
+        },
+        {
+            displayText: "Punya pertanyaan? Langsung chat kami saja!",
+            whatsappMessage: "Halo, saya punya beberapa pertanyaan tentang layanan Anda."
+        },
+        {
+            displayText: "Dapatkan penawaran terbaik khusus untuk Anda!",
+            whatsappMessage: "Halo, saya ingin tahu tentang penawaran terbaik yang sedang berlaku."
+        },
+        {
+            displayText: "Klik di sini untuk info layanan lengkap!",
+            whatsappMessage: "Halo, tolong kirimkan saya informasi layanan yang lengkap."
+        },
+    ];
+
+    let currentMessageIndex = 0;
+    let rotationInterval;
+
+    // Setel atribut href pada tombol WhatsApp utama
+    if (whatsappBtnLink) {
+        whatsappBtnLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultWhatsappMessage)}`;
+    }
+    
+    // Fungsi untuk mengganti teks bubble chat dan memperbarui tautannya
+    function changeBubbleTextAndLink() {
+        const currentBubble = rotatingBubbles[currentMessageIndex];
+        
+        // Perbarui teks yang terlihat
+        bubbleTextElement.textContent = currentBubble.displayText;
+        
+        // Perbarui tautan WhatsApp dengan pesan yang spesifik
+        bubbleChatLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(currentBubble.whatsappMessage)}`;
+        
+        currentMessageIndex = (currentMessageIndex + 1) % rotatingBubbles.length;
+    }
+
+    // Fungsi untuk memulai rotasi teks
+    function startRotation() {
+        // Ganti teks pertama kali tanpa delay
+        changeBubbleTextAndLink();
+        // Kemudian ganti setiap 5 detik
+        rotationInterval = setInterval(changeBubbleTextAndLink, 5000); 
+    }
+
+    // Fungsi untuk menghentikan rotasi teks (tidak lagi diperlukan untuk interaksi klik)
+    function stopRotation() {
+        clearInterval(rotationInterval);
+    }
+    
+    // Mulai rotasi saat halaman dimuat
+    if (bubbleChatLink) {
+        startRotation();
+    }
 });
