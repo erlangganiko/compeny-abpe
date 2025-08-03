@@ -337,7 +337,7 @@ body {
 .why-us-actions .action-btn {
   display: block;
   background: var(--secondary-color);
-  color: var(--white-color);
+  color: var(--dark-color);
   text-decoration: none;
   padding: 15px;
   text-align: center;
@@ -823,6 +823,36 @@ body {
 .article-slider::-webkit-scrollbar {
   display: none; /* */
 }
+.artikel-slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Memperhalus scroll di iOS */
+    user-select: none; /* Mencegah seleksi teks saat digeser */
+    cursor: grab;
+    padding-bottom: 20px; /* Jarak untuk scrollbar */
+}
+
+.artikel-slider-container::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar di browser Webkit (Chrome/Safari) */
+}
+
+.artikel-slider-container.is-dragging {
+    cursor: grabbing;
+}
+
+/* Flexbox untuk slider */
+.artikel-slider {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* Item Artikel */
+.artikel-slider .article-slide {
+    flex-shrink: 0; /* Penting: Mencegah item mengecil */
+    width: 300px; /* Atur lebar setiap item */
+    /* Tambahkan gaya lain yang sudah ada di sini, seperti box-shadow, dll. */
+}
 
 .article-slide {
   flex-shrink: 0; /* Prevent items from shrinking below their calculated width */
@@ -866,7 +896,7 @@ body {
 }
 
 .info-box-outofstock {
-  top: 80px;
+  top: 100px;
   right: 15px;
   color: #de350b;
   font-weight: bold;
@@ -910,6 +940,90 @@ body {
   .article-title {
     font-size: 1.5rem;
   }
+}
+
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse; /* Memastikan bubble di atas tombol */
+    align-items: flex-end;
+    gap: 10px; /* Jarak antara bubble dan tombol */
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Gaya Bubble Chat baru */
+.whatsapp-bubble-chat {
+    background-color: white;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 8px; /* Mengatur sudut lebih kotak */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    white-space: normal;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 250px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-bubble-chat:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mengatur panah bubble chat agar sesuai dengan gambar */
+.whatsapp-bubble-chat::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Menyesuaikan posisi */
+    right: 15px; /* Menyesuaikan posisi horizontal panah */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 0; /* Membuat panah ke bawah-kanan */
+    border-color: white transparent transparent transparent;
+}
+.whatsapp-bubble-chat.is-visible {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        width: 50px; /* Ukuran lebih kecil untuk mobile */
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .whatsapp-bubble-chat {
+        display: none; /* Sembunyikan bubble chat di mode mobile secara default */
+    }
 }
 
 /* Responsive Design */
