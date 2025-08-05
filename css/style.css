@@ -323,8 +323,17 @@ body {
   background-color: #f9f6f3;
 }
 
-.why-us-h1 {
+.why-us-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.why-us-header .title {
   font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 /* Kotak putih timbul utama, sekarang menjadi grid 3 kolom */
 .why-us-content-full {
@@ -1264,6 +1273,7 @@ body {
     justify-content: center; /* Pusatkan juga badge verifikasi */
     margin-top: 20px;
   }
+
   .why-us-content-full {
     grid-template-columns: 1fr; /* Tetap satu kolom */
   }
