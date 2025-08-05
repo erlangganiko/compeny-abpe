@@ -1200,6 +1200,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-top: -20px;
     transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   }
   .nav-links.active {
@@ -1280,12 +1281,18 @@ body {
   .why-us-content-full {
     grid-template-columns: 1fr; /* Tetap satu kolom */
   }
+  .why-us-image.image-2 {
+    display: none;
+  }
   .why-us-image-grid {
     grid-template-columns: 1fr; /* Satu gambar saja di mobile */
     max-height: 300px;
   }
   .why-us-actions {
     padding: 20px;
+  }
+  .why-us-actions .action-btn {
+    text-align: center;
   }
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
