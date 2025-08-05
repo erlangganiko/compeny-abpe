@@ -1249,6 +1249,7 @@ body {
   .logo-container {
     grid-row: 1; /* Posisikan logo di baris pertama */
     margin-bottom: 20px; /* Beri jarak ke judul */
+    margin-top: -150px;
   }
 
   .hero-text-content {
@@ -1277,12 +1278,12 @@ body {
     justify-content: center; /* Pusatkan juga badge verifikasi */
     margin-top: 20px;
   }
-   .verification-badge span {
-  font-size: 20px;
-}
-.verification-badge img {
-  max-width: 40px;
-}
+  .verification-badge span {
+    font-size: 20px;
+  }
+  .verification-badge img {
+    max-width: 40px;
+  }
   .why-us-content-full {
     grid-template-columns: 1fr; /* Tetap satu kolom */
   }

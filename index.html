@@ -26,6 +26,8 @@
     />
     <meta name="apple-mobile-web-app-title" content="MNI" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -165,8 +167,8 @@
           <div class="partners-grid">
             <div class="partner-card1">
               <h1>
-                <span class="text-mitra">MITRA</span>
-                <span class="text-kami">KAMI</span>
+                <span class="text-mitra" data-aos="fade-left">MITRA</span>
+                <span class="text-kami" data-aos="fade-right">KAMI</span>
               </h1>
             </div>
             <div class="partner-card bg-light">
@@ -713,7 +715,12 @@
         <p id="popup-quote" class="popup-quote"></p>
       </div>
     </div>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script>
+      AOS.init();
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>
