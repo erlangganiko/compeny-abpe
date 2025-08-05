@@ -1288,6 +1288,9 @@ body {
     margin-bottom: 15px;
     width: auto;
   }
+  .partner-card1 h1 span {
+    font-size: 30px;
+  }
   .testimonials-grid {
     animation: slideTestimonials 30s linear infinite; /* Sesuaikan kecepatan */
   }
