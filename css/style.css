@@ -1277,7 +1277,12 @@ body {
     justify-content: center; /* Pusatkan juga badge verifikasi */
     margin-top: 20px;
   }
-
+   .verification-badge span {
+  font-size: 20px;
+}
+.verification-badge img {
+  max-width: 40px;
+}
   .why-us-content-full {
     grid-template-columns: 1fr; /* Tetap satu kolom */
   }
