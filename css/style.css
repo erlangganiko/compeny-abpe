@@ -10,7 +10,6 @@
   --white-color: #ffffff; /* Changed for better contrast */
   --yellow-color: #f7b731;
   --primary-font: "Poppins";
-
 }
 
 * {
@@ -149,7 +148,7 @@ body {
   height: 85px; /* Tinggi disesuaikan agar lebih ramping */
 
   /* --- PERUBAHAN UNTUK LEBAR DAN POSISI TENGAH --- */
-  width: 90%; /* 1. Membuat lebar hanya 90% dari layar */
+  width: 100%; /* 1. Membuat lebar hanya 90% dari layar */
   max-width: 1100px; /* 2. Batas lebar maksimum di layar besar */
   left: 50%; /* 3. Posisikan sisi kiri elemen di tengah layar */
   transform: translateX(
@@ -237,7 +236,6 @@ body {
 /* Wadah untuk Teks di Kolom Kiri */
 .hero-text-content {
   text-align: left; /* Teks rata kiri */
-  
 }
 
 /* Logo di Kolom Kanan */
@@ -315,7 +313,7 @@ body {
   font-size: 30px;
 }
 
-.verification-badge img{
+.verification-badge img {
   max-width: 50px;
 }
 
@@ -325,7 +323,7 @@ body {
   background-color: #f9f6f3;
 }
 
-.why-us-h1{
+.why-us-h1 {
   font-size: 2rem;
 }
 /* Kotak putih timbul utama, sekarang menjadi grid 3 kolom */
@@ -333,12 +331,9 @@ body {
   display: grid;
   /* Membuat 3 kolom. Kolom aksi diberi ruang sedikit lebih lebar (1.5fr) */
   grid-template-columns: 1fr 1fr 1.5fr;
-  gap: 10px; /* Jarak antar kolom */
-  padding: 20px; /* Jarak di dalam kartu */
-  /* Ganti nilai ini untuk membuat konten lebih lebar */
-  max-width: 1400px; /* Contoh: Menambah lebar maksimum */
-  /* Atau gunakan 100% jika ingin full-width */
-  /* max-width: 100%; */
+  gap: 5px; /* Jarak antar kolom */
+  padding: 10px;
+  max-width: 1400px;
   margin: 0 auto;
   background: white;
   border-radius: 15px;
@@ -355,13 +350,12 @@ body {
   border-radius: 10px;
 }
 
-
 /* Wadah untuk tombol info di kolom kanan (penyesuaian kecil) */
 .why-us-actions {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
   padding: 0; /* Padding sudah diatur di grid container */
 }
 
@@ -370,7 +364,7 @@ body {
   background: var(--secondary-color);
   color: var(--dark-color);
   border-radius: 12px;
-  padding: 15px 25px;
+  padding: 15px 15px;
   text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   flex-grow: 1;
@@ -385,14 +379,14 @@ body {
 }
 
 .why-us-actions .action-btn h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0 0 5px 0;
 }
 
 .why-us-actions .action-btn p {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1;
   opacity: 0.9;
 }
 
@@ -431,7 +425,6 @@ body {
 .partner-card.bg-light {
   background-color: #f9f9f9; /* Sedikit abu-abu agar tidak terlalu polos */
   border: 1px solid #eaeaea;
-  
 }
 
 .partner-card.bg-orange {
@@ -484,12 +477,12 @@ body {
   font-weight: 500;
 }
 .partner-card p {
-    font-size: 0.8rem; /* Ukuran font lebih kecil agar muat */
-    line-height: 1.5; /* Jarak antar baris agar lebih mudah dibaca */
-    word-wrap: break-word; /* Memastikan kata yang panjang akan pindah baris */
-    overflow-wrap: break-word; /* Alternatif untuk word-wrap */
-    text-align: left; /* Teks rata kiri */
-    margin-top: 10px; /* Memberi jarak dari judul */
+  font-size: 0.8rem; /* Ukuran font lebih kecil agar muat */
+  line-height: 1.5; /* Jarak antar baris agar lebih mudah dibaca */
+  word-wrap: break-word; /* Memastikan kata yang panjang akan pindah baris */
+  overflow-wrap: break-word; /* Alternatif untuk word-wrap */
+  text-align: left; /* Teks rata kiri */
+  margin-top: 10px; /* Memberi jarak dari judul */
 }
 
 .partner-card .logo {
@@ -699,7 +692,6 @@ body {
   margin: 0;
   font-size: 0.9rem;
   color: #bdbdbd;
-  
 }
 
 /* Styling untuk Pop-up Testimoni */
@@ -1309,20 +1301,20 @@ body {
   }
   .popup-overlay.active {
     /* Aturan untuk memastikan pop-up muncul di atas segalanya di mobile */
-    z-index: 1050; 
-    
+    z-index: 1050;
+
     /* Penting: Pastikan properti posisi sudah benar */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    
+
     /* Gunakan flexbox untuk memusatkan konten secara horizontal dan vertikal */
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     /* Aturan visibilitas */
     opacity: 1;
     visibility: visible;
@@ -1331,9 +1323,9 @@ body {
   .popup-content {
     /* Aturan untuk konten pop-up di mobile */
     width: 90%;
-    max-height: 90vh; 
-    overflow-y: auto; 
-    
+    max-height: 90vh;
+    overflow-y: auto;
+
     /* Penting: Pastikan background-color tidak transparan */
     background-color: #333;
     padding: 20px; /* Atur padding agar tidak terlalu mepet */
@@ -1351,6 +1343,19 @@ body {
 
   .article-title {
     font-size: 1.5rem; /* Adjust title font size for mobile */
+  }
+  .footer-container {
+    text-align: center; /* Teks footer rata tengah di mobile */
+  }
+  .footer-col {
+    margin-bottom: 1rem;
+  }
+  .footer-col ul {
+    display: inline-block; /* Agar list tetap rata kiri */
+    text-align: left;
+  }
+  .footer-col a {
+    align-items: center;
   }
 }
 /* Media Queries untuk Responsif Pop-up */
