@@ -136,44 +136,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener untuk setiap tombol "Read full G2 review →"
   document.querySelectorAll(".review-link").forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault(); // Mencegah perilaku default link
+  button.addEventListener("click", function (e) {
+    e.preventDefault(); // Mencegah perilaku default link
 
-      // Temukan testimonial-card terdekat untuk mendapatkan ID-nya
-      const card = this.closest(".testimonial-card");
-      if (card) {
-        const testimonialId = card.dataset.testimonialId; // Ambil ID dari data-testimonial-id
-        const data = testimonialData[testimonialId]; // Ambil data dari objek testimonialData
+    // Temukan testimonial-card terdekat untuk mendapatkan ID-nya
+    const card = this.closest(".testimonial-card");
+    if (card) {
+      const testimonialId = card.dataset.testimonialId;
+      const data = testimonialData[testimonialId];
 
-        // Pastikan data ditemukan
-        if (data) {
-          // Isi konten pop-up menggunakan data dari objek
-          popupAvatar.src = data.avatar;
-          popupName.textContent = data.name;
-          popupTitle.textContent = data.title;
-          popupQuote.textContent = data.quote;
-          popupCompanyLogo.src = data.companyLogo;
-
-          // Apply filter if it exists
-          if (data.companyLogoFilter) {
-            popupCompanyLogo.style.filter = data.companyLogoFilter;
-          } else {
-            popupCompanyLogo.style.filter = "none"; // Reset filter if none
-          }
-
-          // Tampilkan pop-up
-          testimonialPopup.classList.add("active");
-          document.body.style.overflow = "hidden"; // Mencegah scroll pada body
-
-          // PAUSE THE AUTOSLIDE WHEN POPUP IS ACTIVE
-          if (testimonialsGrid) {
-            testimonialsGrid.style.animationPlayState = "paused";
-          }
-        } else {
-          console.error("Data testimoni tidak ditemukan untuk ID:", testimonialId);
-        }
+      // Tambahkan baris kode ini untuk menutup menu navigasi
+      const navLinks = document.querySelector(".nav-links");
+      if (navLinks && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
       }
-    });
+
+      // Pastikan data ditemukan
+      if (data) {
+        // Isi konten pop-up menggunakan data dari objek
+        popupAvatar.src = data.avatar;
+        popupName.textContent = data.name;
+        popupTitle.textContent = data.title;
+        popupQuote.textContent = data.quote;
+        popupCompanyLogo.src = data.companyLogo;
+
+        // Apply filter if it exists
+        if (data.companyLogoFilter) {
+          popupCompanyLogo.style.filter = data.companyLogoFilter;
+        } else {
+          popupCompanyLogo.style.filter = "none";
+        }
+
+        // Tampilkan pop-up
+        testimonialPopup.classList.add("active");
+        document.body.style.overflow = "hidden"; // Mencegah scroll pada body
+
+        // PAUSE THE AUTOSLIDE WHEN POPUP IS ACTIVE
+        if (testimonialsGrid) {
+          testimonialsGrid.style.animationPlayState = "paused";
+        }
+      } else {
+        console.error("Data testimoni tidak ditemukan untuk ID:", testimonialId);
+      }
+    }
+  });
   });
 
   // Event listener untuk tombol tutup pop-up
