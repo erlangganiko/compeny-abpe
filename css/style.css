@@ -1212,9 +1212,12 @@ body {
     padding: 8px 25px !important;
     font-size: 1.2rem !important;
   }
+  #main-nav .hamburger-menu {
+    margin-left: 10px;
+  }
 
   #main-nav.sticky .hamburger-menu {
-    margin-left: 320px;
+    margin-left: auto;
     margin-top: 60px;
   }
   #main-nav.sticky .nav-links a {
