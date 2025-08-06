@@ -376,14 +376,7 @@ if (sliderContainer) {
         startRotation();
     }
 
-    //kartu icon jadi kata-kata
-// GANTI BLOK KODE LAMA DENGAN YANG INI
-// di dalam file main.js
-
-/**
- * Fungsionalitas klik untuk mengubah kartu partner dari gambar ke teks.
- * Versi 2: Judul menjadi link, dan klik deskripsi untuk kembali ke logo.
- */
+    //kartu icon
 const partnerCards = document.querySelectorAll(".partners-grid .partner-card");
 
 partnerCards.forEach((card) => {
@@ -397,26 +390,25 @@ partnerCards.forEach((card) => {
     }
 
     card.addEventListener("click", function (event) {
+      
+      event.preventDefault();
+      event.stopPropagation();
+     
       const currentCard = event.currentTarget;
       
-      // Jika kartu sedang dalam proses transisi, jangan lakukan apa-apa
       if (currentCard.classList.contains('is-fading')) {
         return;
       }
 
-      // 1. Mulai proses fade-out dengan menambahkan kelas is-fading
       currentCard.classList.add('is-fading');
 
-      // 2. Tunggu transisi fade-out selesai (300ms, sesuai durasi di CSS)
       setTimeout(() => {
         const targetElement = event.target;
-        const isShowingImage = currentCard.querySelector("img") !== null;
+        // Pengecekan isShowingImage sekarang menggunakan konten yang tersimpan
+        // untuk menghindari masalah timing DOM.
+        const isShowingImage = currentCard.innerHTML.includes('<img');
 
         if (isShowingImage) {
-          // --- GANTI KONTEN DARI GAMBAR KE TEKS ---
-          event.preventDefault();
-          event.stopPropagation();
-          
           const title = currentCard.dataset.title;
           const description = currentCard.dataset.description;
           const link = currentCard.dataset.originalLink || '#';
@@ -426,19 +418,16 @@ partnerCards.forEach((card) => {
           currentCard.classList.remove("bg-light");
           currentCard.classList.add("bg-orange");
         } else {
-          // --- GANTI KONTEN DARI TEKS KE GAMBAR ---
           if (targetElement.tagName === 'P') {
             currentCard.innerHTML = currentCard.dataset.originalHtml;
             currentCard.className = currentCard.dataset.originalClasses;
           }
         }
         
-        // 3. Hapus kelas is-fading agar kartu muncul kembali (fade-in)
         currentCard.classList.remove('is-fading');
 
-      }, 500); // Durasi harus sama dengan transition di CSS (0.3s = 300ms)
+      }, 500);
     });
   }
 });
-
 });
