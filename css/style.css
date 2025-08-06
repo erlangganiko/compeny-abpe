@@ -540,18 +540,38 @@ body {
 .partner-card[data-title] {
   cursor: pointer;
   text-align: center;
-  transition: opacity 0.3s ease-in-out; 
+  
 }
 
 /* Memberi isyarat bahwa deskripsi bisa diklik untuk kembali ke logo */
 .partner-card p {
   cursor: pointer;
   text-align: justify;
-  transition: opacity 0.5s ease-in-out; 
+  
 }
 
-.partner-card.is-fading {
-  opacity: 0;
+
+@keyframes slideUpFadeIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Gaya awal untuk teks di dalam kartu deskripsi */
+.partner-card.bg-orange h3,
+.partner-card.bg-orange p {
+  animation: slideUpFadeIn 0.7s ease-out forwards;
+}
+
+/* Transisi fade out untuk logo saat menghilang */
+.partner-card.is-fading .logo-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
 
 /* --- 2. SEKSI JADI MITRA KAMI (BECOME A PARTNER) --- */
