@@ -375,59 +375,67 @@ if (sliderContainer) {
     if (bubbleChatLink) {
         startRotation();
     }
-
-    //kartu icon
+    
+// card icon 
 const partnerCards = document.querySelectorAll(".partners-grid .partner-card");
 
 partnerCards.forEach((card) => {
   if (card.dataset.title) {
+    // Simpan informasi asli
     card.dataset.originalHtml = card.innerHTML;
     card.dataset.originalClasses = card.className;
-    
     const originalLink = card.querySelector('a')?.href;
     if (originalLink) {
         card.dataset.originalLink = originalLink;
     }
 
     card.addEventListener("click", function (event) {
-      
-      event.preventDefault();
-      event.stopPropagation();
-     
       const currentCard = event.currentTarget;
+      const target = event.target;
+      const isShowingImage = currentCard.querySelector("img") !== null;
+
+      // Jika kartu sedang dalam transisi, abaikan klik
+      if (currentCard.classList.contains('is-fading')) return;
       
-      if (currentCard.classList.contains('is-fading')) {
-        return;
-      }
-
-      currentCard.classList.add('is-fading');
-
-      setTimeout(() => {
-        const targetElement = event.target;
-        // Pengecekan isShowingImage sekarang menggunakan konten yang tersimpan
-        // untuk menghindari masalah timing DOM.
-        const isShowingImage = currentCard.innerHTML.includes('<img');
-
-        if (isShowingImage) {
+      if (isShowingImage) {
+        // --- AKSI SAAT LOGO DIKLIK ---
+        // Karena kita ingin mengubah kartu, kita cegah link asli terbuka.
+        event.preventDefault();
+        event.stopPropagation();
+        
+        currentCard.classList.add('is-fading');
+        setTimeout(() => {
           const title = currentCard.dataset.title;
           const description = currentCard.dataset.description;
           const link = currentCard.dataset.originalLink || '#';
           const newHtml = `<h3><a href="${link}" target="_blank">${title}</a></h3><p>${description}</p>`;
           
           currentCard.innerHTML = newHtml;
+          currentCard.className = card.dataset.originalClasses;
           currentCard.classList.remove("bg-light");
           currentCard.classList.add("bg-orange");
-        } else {
-          if (targetElement.tagName === 'P') {
-            currentCard.innerHTML = currentCard.dataset.originalHtml;
-            currentCard.className = currentCard.dataset.originalClasses;
-          }
+          
+          currentCard.classList.remove('is-fading');
+        }, 300);
+
+      } else {
+        // --- AKSI SAAT TEKS DIKLIK ---
+      
+        if (target.tagName === 'P') {
+          event.preventDefault();
+          event.stopPropagation();
+
+          currentCard.classList.add('is-fading');
+          setTimeout(() => {
+             currentCard.innerHTML = card.dataset.originalHtml;
+             currentCard.className = card.dataset.originalClasses;
+             currentCard.classList.remove('is-fading');
+           }, 300);
         }
         
-        currentCard.classList.remove('is-fading');
-
-      }, 500);
+      }
     });
   }
 });
+
 });
