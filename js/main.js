@@ -387,13 +387,10 @@ if (sliderContainer) {
 const partnerCards = document.querySelectorAll(".partners-grid .partner-card");
 
 partnerCards.forEach((card) => {
-  // Hanya proses kartu yang punya data-title (kartu yang awalnya gambar)
   if (card.dataset.title) {
-    // Simpan informasi asli dari kartu
     card.dataset.originalHtml = card.innerHTML;
     card.dataset.originalClasses = card.className;
     
-    // Ambil dan simpan link asli dari tag <a>
     const originalLink = card.querySelector('a')?.href;
     if (originalLink) {
         card.dataset.originalLink = originalLink;
@@ -401,47 +398,47 @@ partnerCards.forEach((card) => {
 
     card.addEventListener("click", function (event) {
       const currentCard = event.currentTarget;
-      const targetElement = event.target; // Elemen yang diklik (img, p, a, dll)
+      
+      // Jika kartu sedang dalam proses transisi, jangan lakukan apa-apa
+      if (currentCard.classList.contains('is-fading')) {
+        return;
+      }
 
-      const isShowingImage = currentCard.querySelector("img") !== null;
+      // 1. Mulai proses fade-out dengan menambahkan kelas is-fading
+      currentCard.classList.add('is-fading');
 
-      if (isShowingImage) {
-        // --- TINDAKAN SAAT KARTU MASIH BERBENTUK GAMBAR ---
-        
-        // Mencegah link default terbuka saat pertama kali diklik
-        event.preventDefault();
-        event.stopPropagation();
-        
-        // Ambil data yang sudah disimpan
-        const title = currentCard.dataset.title;
-        const description = currentCard.dataset.description;
-        const link = currentCard.dataset.originalLink || '#';
+      // 2. Tunggu transisi fade-out selesai (300ms, sesuai durasi di CSS)
+      setTimeout(() => {
+        const targetElement = event.target;
+        const isShowingImage = currentCard.querySelector("img") !== null;
 
-        // Buat konten teks baru, dengan judul sebagai link yang terbuka di tab baru
-        const newHtml = `<h3><a href="${link}" target="_blank">${title}</a></h3><p>${description}</p>`;
-        
-        // Ubah konten kartu
-        currentCard.innerHTML = newHtml;
-
-        // Ubah style agar konsisten
-        currentCard.classList.remove("bg-light");
-        currentCard.classList.add("bg-orange");
-
-      } else {
-        // --- TINDAKAN SAAT KARTU SUDAH BERBENTUK TEKS ---
-
-        // Cek apakah yang diklik adalah paragraf deskripsi (<p>)
-        if (targetElement.tagName === 'P') {
-          // Jika ya, kembalikan ke bentuk logo asli
-          currentCard.innerHTML = currentCard.dataset.originalHtml;
-          currentCard.className = currentCard.dataset.originalClasses;
+        if (isShowingImage) {
+          // --- GANTI KONTEN DARI GAMBAR KE TEKS ---
+          event.preventDefault();
+          event.stopPropagation();
+          
+          const title = currentCard.dataset.title;
+          const description = currentCard.dataset.description;
+          const link = currentCard.dataset.originalLink || '#';
+          const newHtml = `<h3><a href="${link}" target="_blank">${title}</a></h3><p>${description}</p>`;
+          
+          currentCard.innerHTML = newHtml;
+          currentCard.classList.remove("bg-light");
+          currentCard.classList.add("bg-orange");
+        } else {
+          // --- GANTI KONTEN DARI TEKS KE GAMBAR ---
+          if (targetElement.tagName === 'P') {
+            currentCard.innerHTML = currentCard.dataset.originalHtml;
+            currentCard.className = currentCard.dataset.originalClasses;
+          }
         }
         
-        // Jika yang diklik adalah link di dalam H3 (tag <a>),
-        // browser akan otomatis menanganinya (membuka link di tab baru)
-        // karena kita tidak memanggil event.preventDefault() di sini.
-      }
+        // 3. Hapus kelas is-fading agar kartu muncul kembali (fade-in)
+        currentCard.classList.remove('is-fading');
+
+      }, 500); // Durasi harus sama dengan transition di CSS (0.3s = 300ms)
     });
   }
 });
+
 });
