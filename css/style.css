@@ -451,6 +451,7 @@ body {
   align-items: center;
   width: 100%; /* Menyesuaikan lebar dengan grid */
   height: 100%; /* Menyesuaikan tinggi dengan grid */
+  overflow: hidden;
 }
 
 .partner-card1 h1 {
@@ -477,6 +478,25 @@ body {
   color: #3b5998;
   text-align: right;
   margin-right: -40px;
+}
+[data-aos="slide-right"] {
+  transform: translateX(-100%); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kiri */
+  opacity: 0; /* Mulai dari kondisi transparan */
+  transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
+}
+
+/* Untuk elemen yang akan bergeser dari kanan ke kiri */
+[data-aos="slide-left"] {
+  transform: translateX(100%); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kanan */
+  opacity: 0; /* Mulai dari kondisi transparan */
+  transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
+}
+
+/* State saat animasi aktif (dikelola oleh AOS) */
+[data-aos="slide-right"].aos-animate,
+[data-aos="slide-left"].aos-animate {
+  transform: translateX(0); /* Kembali ke posisi normal */
+  opacity: 1; /* Kembali ke kondisi terlihat penuh */
 }
 
 .partner-card h3 {
@@ -505,12 +525,27 @@ body {
   line-height: 1.2;
 }
 
-.mitra-kami-title .line-1 {
-  color: #ed8b4e;
+.text-mitra {
+  color: #e8935b;
+  text-align: center; /* Ubah menjadi center */
+  /* margin-left: -40px; Dihapus */
 }
 
-.mitra-kami-title .line-2 {
-  color: #495493;
+.text-kami {
+  color: #3b5998;
+  text-align: center; /* Ubah menjadi center */
+  /* margin-right: -40px; Dihapus */
+}
+/* Memberi isyarat bahwa kartu partner bisa diklik */
+.partner-card[data-title] {
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Memberi isyarat bahwa deskripsi bisa diklik untuk kembali ke logo */
+.partner-card p {
+  cursor: pointer;
+  text-align: justify;
 }
 
 /* --- 2. SEKSI JADI MITRA KAMI (BECOME A PARTNER) --- */
@@ -585,6 +620,8 @@ body {
   display: block;
   border-radius: 20px;
 }
+
+
 
 /* --- 3. SEKSI TESTIMONI --- */
 .testimonials-section {
