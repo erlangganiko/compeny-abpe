@@ -297,7 +297,6 @@ if (sliderContainer) {
     // Mulai auto-slide saat halaman pertama kali dimuat
     startAutoSlide();
 }
-
   // --- Kode untuk Floating WhatsApp dan Bubble Chat ---
 
   const bubbleTextElement = document.getElementById('bubble-text');
@@ -376,4 +375,73 @@ if (sliderContainer) {
     if (bubbleChatLink) {
         startRotation();
     }
+
+    //kartu icon jadi kata-kata
+// GANTI BLOK KODE LAMA DENGAN YANG INI
+// di dalam file main.js
+
+/**
+ * Fungsionalitas klik untuk mengubah kartu partner dari gambar ke teks.
+ * Versi 2: Judul menjadi link, dan klik deskripsi untuk kembali ke logo.
+ */
+const partnerCards = document.querySelectorAll(".partners-grid .partner-card");
+
+partnerCards.forEach((card) => {
+  // Hanya proses kartu yang punya data-title (kartu yang awalnya gambar)
+  if (card.dataset.title) {
+    // Simpan informasi asli dari kartu
+    card.dataset.originalHtml = card.innerHTML;
+    card.dataset.originalClasses = card.className;
+    
+    // Ambil dan simpan link asli dari tag <a>
+    const originalLink = card.querySelector('a')?.href;
+    if (originalLink) {
+        card.dataset.originalLink = originalLink;
+    }
+
+    card.addEventListener("click", function (event) {
+      const currentCard = event.currentTarget;
+      const targetElement = event.target; // Elemen yang diklik (img, p, a, dll)
+
+      const isShowingImage = currentCard.querySelector("img") !== null;
+
+      if (isShowingImage) {
+        // --- TINDAKAN SAAT KARTU MASIH BERBENTUK GAMBAR ---
+        
+        // Mencegah link default terbuka saat pertama kali diklik
+        event.preventDefault();
+        event.stopPropagation();
+        
+        // Ambil data yang sudah disimpan
+        const title = currentCard.dataset.title;
+        const description = currentCard.dataset.description;
+        const link = currentCard.dataset.originalLink || '#';
+
+        // Buat konten teks baru, dengan judul sebagai link yang terbuka di tab baru
+        const newHtml = `<h3><a href="${link}" target="_blank">${title}</a></h3><p>${description}</p>`;
+        
+        // Ubah konten kartu
+        currentCard.innerHTML = newHtml;
+
+        // Ubah style agar konsisten
+        currentCard.classList.remove("bg-light");
+        currentCard.classList.add("bg-orange");
+
+      } else {
+        // --- TINDAKAN SAAT KARTU SUDAH BERBENTUK TEKS ---
+
+        // Cek apakah yang diklik adalah paragraf deskripsi (<p>)
+        if (targetElement.tagName === 'P') {
+          // Jika ya, kembalikan ke bentuk logo asli
+          currentCard.innerHTML = currentCard.dataset.originalHtml;
+          currentCard.className = currentCard.dataset.originalClasses;
+        }
+        
+        // Jika yang diklik adalah link di dalam H3 (tag <a>),
+        // browser akan otomatis menanganinya (membuka link di tab baru)
+        // karena kita tidak memanggil event.preventDefault() di sini.
+      }
+    });
+  }
+});
 });
