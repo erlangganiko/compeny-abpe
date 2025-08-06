@@ -1,628 +1,776 @@
 <!DOCTYPE html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitra Nusantara Indonesia</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/loading-screen.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link href="https://fonts.cdnfonts.com/css/railway" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MNI" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mitra Nusantara Indonesia</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/loading-screen.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.cdnfonts.com/css/railway" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="MNI" />
-  <link rel="manifest" href="assets/favicon/site.webmanifest" />
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-</head>
-
-<body>
-  <div id="loading-screen">
-    <img src="assets/loading-screen-compeny.webp" alt="Loading..." />
-  </div>
-  <div class="floating-whatsapp">
-    <a href="#" id="whatsapp-btn-link" class="whatsapp-btn" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="#" id="whatsapp-bubble-chat-link" class="whatsapp-bubble-chat" target="_blank">
-      <span id="bubble-text"></span>
-    </a>
-  </div>
-  <div id="main-content" style="display: none">
-    <nav id="main-nav">
-      <div class="container nav-container">
-        <div id="navbar-logo" class="navbar-logo-placeholder">
-          <img src="assets/logo-compeny.webp" alt="" />
-        </div>
-        <ul class="nav-links">
-          <li class="mobile-nav-logo">
-            <img src="assets/logo-compeny.webp" alt="Company Logo" />
-          </li>
-          <li><a href="#">Home</a></li>
-          <li><a href="#AboutUs">About Us</a></li>
-          <li><a href="#product">Product</a></li>
-          <li><a href="#mitra">Mitra</a></li>
-          <li><a href="#testimoni">Testimoni</a></li>
-          <li><a href="#artikel">Artikel</a></li>
-          <li><a href="#" class="nav-contact-btn">Contact</a></li>
-        </ul>
-        <div class="hamburger-menu"></div>
-      </div>
-    </nav>
-
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="hero-text-content">
-          <h1 id="hero-title">
-            TEMUKAN JASA TERBAIK <br />BANGUN BISNIS BERSAMA MITRANA ID
-          </h1>
-          <p>
-            Mitrana ID menghubungkan kamu dengan ribuan pelanggan dan mitrana
-            jasa terpercaya
-          </p>
-          <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Cari Jasa</a>
-            <a href="#" class="btn btn-secondary">Gabung Mitra</a>
+  <body>
+    <div id="loading-screen">
+      <img src="assets/loading-screen-compeny.webp" alt="Loading..." />
+    </div>
+    <div class="floating-whatsapp">
+      <a href="#" id="whatsapp-btn-link" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a
+        href="#"
+        id="whatsapp-bubble-chat-link"
+        class="whatsapp-bubble-chat"
+        target="_blank"
+      >
+        <span id="bubble-text"></span>
+      </a>
+    </div>
+    <div id="main-content" style="display: none">
+      <nav id="main-nav">
+        <div class="container nav-container">
+          <div id="navbar-logo" class="navbar-logo-placeholder">
+            <img src="assets/logo-compeny.webp" alt="" />
           </div>
-          <div class="verification-badge">
-            <img src="assets/verified.webp" alt="" />
-            <span>Terverifikasi Aman & Terpercaya</span>
-          </div>
-        </div>
-
-        <div id="hero-logo" class="logo-container">
-          <div class="logo-placeholder">
-            <img src="assets/logo-compeny.webp" alt="Logo Mitra Nusantara" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="why-us" id="AboutUs">
-      <div class="container">
-        <div class="why-us-header">
-          <h2 class="title">Kenapa Memilih Kami?</h2>
-        </div>
-        <div class="why-us-content-full">
-          <img src="assets/why-us-2.webp" alt="Kerjasama dan Kemitraan" class="why-us-image image-1" />
-          <img src="assets/why-us-1.webp" alt="Tim Profesional Mitrana" class="why-us-image image-2" />
-
-          <div class="why-us-actions">
-            <div class="action-btn">
-              <h3>APA YANG KAMI TAWARKAN</h3>
-              <p>
-                Solusi kemitraan jasa dengan pendekatan digital dan sistematis
-                untuk pertumbuhan bersama.
-              </p>
-            </div>
-            <div class="action-btn">
-              <h3>TIM KAMI</h3>
-              <p>
-                Didukung oleh para profesional di bidang operasional, digital,
-                dan manajemen mitra.
-              </p>
-            </div>
-            <div class="action-btn">
-              <h3>LAYANAN UTAMA</h3>
-              <p>
-                Mulai dari sistem pendaftaran mitra, pelatihan, hingga
-                dashboard pantau performa.
-              </p>
-            </div>
-            <div class="action-btn">
-              <h3>SISTEM USAHA SIAP PAKAI</h3>
-              <p>
-                MitraNa siapkan alur kerja, SOP, platform digital, dan materi
-                jualan — kamu langsung bisa mulai jalanin bisnisnya.
-              </p>
-            </div>
-            <div class="action-btn">
-              <h3>PANTAU BISNIS DARI GENGGAMAN</h3>
-              <p>
-                Pantau pesanan, status layanan, dan progres tim langsung dari
-                HP-mu — cepat, transparan, dan efisien.
-              </p>
-            </div>
-            <div class="action-btn">
-              <h3>SUPPORT & EDUKASI BERKALA</h3>
-              <p>
-                Tersedia sesi pelatihan, template kerja, dan grup support
-                untuk bantu kamu berkembang setiap hari.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="partners-section" id="product">
-      <div class="container">
-        <div class="partners-grid">
-          <div class="partner-card1">
-            <div class="partner-card1">
-              <h1>
-                <span class="text-mitra" data-aos="slide-right" data-aos-delay="100">MITRA</span>
-                <span class="text-kami" data-aos="slide-left" data-aos-delay="300">KAMI</span>
-              </h1>
-            </div>
-          </div>
-          <div class="partner-card bg-light" data-title="ABPE Digital Service"
-            data-description="Layanan digital marketing terintegrasi untuk meningkatkan jangkauan bisnis Anda di dunia online.">
-            <a href="https://mitrana.id/digital-service/">
-              <img src="assets/ABPE-Logo.webp" alt="Logo ABPE Digital" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-orange" data-title="Pro AC Cleaning"
-            data-description="Jasa perawatan dan pembersihan AC profesional untuk rumah dan kantor, memastikan udara sejuk dan bersih.">
-            <a href="https://mitrana.id/ac-service/">
-              <img src="assets/logoAc1.png" alt="Logo ProaCleaning" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-light" data-title="Coco Briquette Asia"
-            data-description="Pemasok briket arang kelapa berkualitas tinggi untuk kebutuhan ekspor, ramah lingkungan dan tahan lama.">
-            <a href="https://abpeworks.com/client/dev/beta/coco-briquette-asia/">
-              <img src="assets/coal-logo.webp" alt="Logo CBA" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-light" data-title="ABPE Works"
-            data-description="Solusi pengembangan web dan sistem informasi custom untuk mendukung transformasi digital perusahaan Anda.">
-            <a href="https://abpeworks.com/">
-              <img src="assets/abpe.webp" alt="Logo ABPE" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-orange" data-title="Mitra Jasa Lain"
-            data-description="Deskripsi untuk mitra jasa lainnya. Jelaskan layanan yang ditawarkan secara singkat dan jelas.">
-            <a href="#">
-              <img src="assets/Group 3.png" alt="Logo Mitra Lain" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-light" data-title="Mitra Jasa Berikutnya"
-            data-description="Deskripsi untuk mitra jasa berikutnya. Jelaskan layanan yang ditawarkan secara singkat dan jelas.">
-            <a href="#">
-              <img src="assets/Group 3.png" alt="Logo Mitra Berikutnya" class="logo" />
-            </a>
-          </div>
-          <div class="partner-card bg-orange" data-title="abpe works" data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut.">
-            <a href="#"></a>
-            <img src="assets/Group 3.png" alt="Logo ABPE" class="logo">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="join-us-section" id="mitra">
-      <div class="container">
-        <div class="join-us-header">
-          <h2 class="title">Jadi Mitra Kami</h2>
-          <p class="subtitle">
-            Cukup daftar dan kami akan review bisnis kalian
-          </p>
-        </div>
-        <div class="steps-container">
-          <div class="step-card">
-            <div class="step-header">
-              <span>Daftar</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="assets/video/contoh2.mp4" type="video/mp4" />
-                Browser Anda tidak mendukung tag video.
-              </video>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-header">
-              <span>Verifikasi</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="assets/video/contoh2.mp4" type="video/mp4" />
-                Browser Anda tidak mendukung tag video.
-              </video>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-header">
-              <span>Aktivasi Layanan</span>
-              <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-            <div class="video-container">
-              <video autoplay loop muted playsinline>
-                <source src="assets/video/contoh2.mp4" type="video/mp4" />
-                Browser Anda tidak mendukung tag video.
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials-section" id="testimoni">
-      <h2 class="section-title">Testimoni Mitra Kami</h2>
-      <div class="testimonials-slider-wrapper">
-        <div class="testimonials-grid">
-          <div class="testimonial-card" data-testimonial-id="t1">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
-                alt="Fender Logo" class="company-logo" />
-            </div>
-            <p class="quote-text">
-              Avo saved my sanity when juggling our tracking plans. We now
-              generate analytics within minutes of a new feature launch
-              because of the pre-work we've done in Avo.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=claire" alt="Claire Armstrong" class="author-avatar" />
-              <div class="author-details">
-                <h4>Claire Armstrong</h4>
-                <p>Director of Digital Product</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-testimonial-id="t2">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
-                alt="Culture Amp Logo" class="company-logo" style="filter: invert(1)" />
-            </div>
-            <p class="quote-text">
-              Buying Avo was possibly the most impactful decision I've made. I
-              don't know how product companies do any analytics without Avo.
-              It's become the foundation of our analytics.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=nicholas" alt="Nicholas Threapleton" class="author-avatar" />
-              <div class="author-details">
-                <h4>Nicholas Threapleton</h4>
-                <p>Lead Product Analyst</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-testimonial-id="t3">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
-                alt="Zenbusiness Logo" class="company-logo" />
-            </div>
-            <p class="quote-text">
-              The best data governance platform for your analytics events.
-              Overall I'm very happy with the product and our data quality
-              improves on a daily basis.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=tomi" alt="Tomi Keah" class="author-avatar" />
-              <div class="author-details">
-                <h4>Tomi Keah</h4>
-                <p>Senior Data Analyst</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-testimonial-id="t1">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
-                alt="Fender Logo" class="company-logo" />
-            </div>
-            <p class="quote-text">
-              Avo saved my sanity when juggling our tracking plans. We now
-              generate analytics within minutes of a new feature launch
-              because of the pre-work we've done in Avo.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=claire" alt="Claire Armstrong" class="author-avatar" />
-              <div class="author-details">
-                <h4>Claire Armstrong</h4>
-                <p>Director of Digital Product</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-testimonial-id="t2">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
-                alt="Culture Amp Logo" class="company-logo" style="filter: invert(1)" />
-            </div>
-            <p class="quote-text">
-              Buying Avo was possibly the most impactful decision I've made. I
-              don't know how product companies do any analytics without Avo.
-              It's become the foundation of our analytics.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=nicholas" alt="Nicholas Threapleton" class="author-avatar" />
-              <div class="author-details">
-                <h4>Nicholas Threapleton</h4>
-                <p>Lead Product Analyst</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-testimonial-id="t3">
-            <div class="card-header">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <img
-                src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
-                alt="Zenbusiness Logo" class="company-logo" />
-            </div>
-            <p class="quote-text">
-              The best data governance platform for your analytics events.
-              Overall I'm very happy with the product and our data quality
-              improves on a daily basis.
-            </p>
-            <a href="#" class="review-link">Read More</a>
-            <div class="author-info">
-              <img src="https://i.pravatar.cc/150?u=tomi" alt="Tomi Keah" class="author-avatar" />
-              <div class="author-details">
-                <h4>Tomi Keah</h4>
-                <p>Senior Data Analyst</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="article-section" id="artikel">
-      <div class="article-header">
-        <h2 class="title">Artikel</h2>
-      </div>
-      <div class="article-slider-wrapper">
-        <div class="article-slider" id="articleSlider">
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-
-          <div class="article-slide">
-            <div class="article-image-container">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
-                alt="POS system" class="main-image" />
-              <div class="info-box info-box-inventory">
-                <div class="label">Inventory Stock</div>
-                <div class="value">4,862</div>
-              </div>
-              <div class="info-box info-box-outofstock">
-                <div class="label">Out of Stock</div>
-                <div class="value">290</div>
-              </div>
-            </div>
-            <div class="article-content">
-              <h2 class="article-title">
-                Unlocking Efficiency: The Power Of A Modern POS System
-              </h2>
-              <p class="article-excerpt">
-                In today's fast-paced business landscape, efficiency is key to
-                success. From local shops to large enterprises, businesses
-                seek ways to streamline operations and enhance customer
-                experience.
-              </p>
-              <a href="#" class="read-more-link">Read More →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-col">
-          <img src="assets/logo-compeny.webp" alt="Mitrana.ID" class="footer-logo" />
-          <p>
-            Your premium partner for high-quality charcoal briquettes, ready
-            for global export. Clean energy for a better world.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
+          <ul class="nav-links">
+            <li class="mobile-nav-logo">
+              <img src="assets/logo-compeny.webp" alt="Company Logo" />
+            </li>
             <li><a href="#">Home</a></li>
             <li><a href="#AboutUs">About Us</a></li>
             <li><a href="#product">Product</a></li>
             <li><a href="#mitra">Mitra</a></li>
             <li><a href="#testimoni">Testimoni</a></li>
             <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#" class="nav-contact-btn">Contact</a></li>
           </ul>
+          <div class="hamburger-menu"></div>
         </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>
-            Grand Vivo Residence Jl. Lempung Perdana I Nomor C-3<br />
-            Surabaya, Indonesia<br />
-            <a href="mailto:contact@charcoalasia.com">contact@charcoalasia.com</a>
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/cocobriquetteasia.id/" target="_blank" aria-label="Instagram"><i
-                class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </nav>
+
+      <section class="hero" id="hero">
+        <div class="hero-content">
+          <div class="hero-text-content">
+            <h1 id="hero-title">
+              TEMUKAN JASA TERBAIK <br />BANGUN BISNIS BERSAMA MITRANA ID
+            </h1>
+            <p>
+              Mitrana ID menghubungkan kamu dengan ribuan pelanggan dan mitrana
+              jasa terpercaya
+            </p>
+            <div class="hero-buttons">
+              <a href="#" class="btn btn-primary">Cari Jasa</a>
+              <a href="#" class="btn btn-secondary">Gabung Mitra</a>
+            </div>
+            <div class="verification-badge">
+              <img src="assets/verified.webp" alt="" />
+              <span>Terverifikasi Aman & Terpercaya</span>
+            </div>
+          </div>
+
+          <div id="hero-logo" class="logo-container">
+            <div class="logo-placeholder">
+              <img src="assets/logo-compeny.webp" alt="Logo Mitra Nusantara" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Mitrana.ID</p>
-      </div>
-    </footer>
-  </div>
+      </section>
 
-  <div id="testimonial-popup" class="popup-overlay">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
-      <div class="popup-top-info">
-        <i class="fas fa-quote-left quote-icon"></i>
-        <img id="popup-company-logo" src="" alt="Company Logo" class="popup-company-logo" />
-      </div>
-      <div class="popup-author-info">
-        <img id="popup-avatar" src="" alt="Avatar" class="popup-avatar" />
-        <div class="popup-author-details">
-          <h4 id="popup-name"></h4>
-          <p id="popup-title"></p>
+      <section class="why-us" id="AboutUs">
+        <div class="container">
+          <div class="why-us-header">
+            <h2 class="title">Kenapa Memilih Kami?</h2>
+          </div>
+          <div class="why-us-content-full">
+            <img
+              src="assets/why-us-2.webp"
+              alt="Kerjasama dan Kemitraan"
+              class="why-us-image image-1"
+            />
+            <img
+              src="assets/why-us-1.webp"
+              alt="Tim Profesional Mitrana"
+              class="why-us-image image-2"
+            />
+
+            <div class="why-us-actions">
+              <div class="action-btn">
+                <h3>APA YANG KAMI TAWARKAN</h3>
+                <p>
+                  Solusi kemitraan jasa dengan pendekatan digital dan sistematis
+                  untuk pertumbuhan bersama.
+                </p>
+              </div>
+              <div class="action-btn">
+                <h3>TIM KAMI</h3>
+                <p>
+                  Didukung oleh para profesional di bidang operasional, digital,
+                  dan manajemen mitra.
+                </p>
+              </div>
+              <div class="action-btn">
+                <h3>LAYANAN UTAMA</h3>
+                <p>
+                  Mulai dari sistem pendaftaran mitra, pelatihan, hingga
+                  dashboard pantau performa.
+                </p>
+              </div>
+              <div class="action-btn">
+                <h3>SISTEM USAHA SIAP PAKAI</h3>
+                <p>
+                  MitraNa siapkan alur kerja, SOP, platform digital, dan materi
+                  jualan — kamu langsung bisa mulai jalanin bisnisnya.
+                </p>
+              </div>
+              <div class="action-btn">
+                <h3>PANTAU BISNIS DARI GENGGAMAN</h3>
+                <p>
+                  Pantau pesanan, status layanan, dan progres tim langsung dari
+                  HP-mu — cepat, transparan, dan efisien.
+                </p>
+              </div>
+              <div class="action-btn">
+                <h3>SUPPORT & EDUKASI BERKALA</h3>
+                <p>
+                  Tersedia sesi pelatihan, template kerja, dan grup support
+                  untuk bantu kamu berkembang setiap hari.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <p id="popup-quote" class="popup-quote"></p>
+      </section>
+
+      <section class="partners-section" id="product">
+        <div class="container">
+          <div class="partners-grid">
+            <div class="partner-card1">
+              <div class="partner-card1">
+                <h1>
+                  <span
+                    class="text-mitra"
+                    data-aos="slide-right"
+                    data-aos-delay="100"
+                    >MITRA</span
+                  >
+                  <span
+                    class="text-kami"
+                    data-aos="slide-left"
+                    data-aos-delay="300"
+                    >KAMI</span
+                  >
+                </h1>
+              </div>
+            </div>
+            <div
+              class="partner-card bg-light"
+              data-title="ABPE Digital Service"
+              data-description="Layanan digital marketing terintegrasi untuk meningkatkan jangkauan bisnis Anda di dunia online."
+            >
+              <a href="https://mitrana.id/digital-service/">
+                <img
+                  src="assets/ABPE-Logo.webp"
+                  alt="Logo ABPE Digital"
+                  class="logo"
+                />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-orange"
+              data-title="Pro AC Cleaning"
+              data-description="Jasa perawatan dan pembersihan AC profesional untuk rumah dan kantor, memastikan udara sejuk dan bersih."
+            >
+              <a href="https://mitrana.id/ac-service/">
+                <img
+                  src="assets/logoAc1.png"
+                  alt="Logo ProaCleaning"
+                  class="logo"
+                />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-light"
+              data-title="Coco Briquette Asia"
+              data-description="Pemasok briket arang kelapa berkualitas tinggi untuk kebutuhan ekspor, ramah lingkungan dan tahan lama."
+            >
+              <a
+                href="https://abpeworks.com/client/dev/beta/coco-briquette-asia/"
+              >
+                <img src="assets/coal-logo.webp" alt="Logo CBA" class="logo" />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-light"
+              data-title="ABPE Works"
+              data-description="Solusi pengembangan web dan sistem informasi custom untuk mendukung transformasi digital perusahaan Anda."
+            >
+              <a href="https://abpeworks.com/">
+                <img src="assets/abpe.webp" alt="Logo ABPE" class="logo" />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-orange"
+              data-title="Mitra Jasa Lain"
+              data-description="Deskripsi untuk mitra jasa lainnya. Jelaskan layanan yang ditawarkan secara singkat dan jelas."
+            >
+              <a href="#">
+                <img
+                  src="assets/Group 3.png"
+                  alt="Logo Mitra Lain"
+                  class="logo"
+                />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-light"
+              data-title="Mitra Jasa Berikutnya"
+              data-description="Deskripsi untuk mitra jasa berikutnya. Jelaskan layanan yang ditawarkan secara singkat dan jelas."
+            >
+              <a href="#">
+                <img
+                  src="assets/Group 3.png"
+                  alt="Logo Mitra Berikutnya"
+                  class="logo"
+                />
+              </a>
+            </div>
+            <div
+              class="partner-card bg-orange"
+              data-title="abpe works"
+              data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut."
+            >
+              <a href="#"></a>
+              <img src="assets/Group 3.png" alt="Logo ABPE" class="logo" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="join-us-section" id="mitra">
+        <div class="container">
+          <div class="join-us-header">
+            <h2 class="title">Jadi Mitra Kami</h2>
+            <p class="subtitle">
+              Cukup daftar dan kami akan review bisnis kalian
+            </p>
+          </div>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-header">
+                <span>Daftar</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/video/contoh2.mp4" type="video/mp4" />
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span>Verifikasi</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/video/contoh2.mp4" type="video/mp4" />
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span>Aktivasi Layanan</span>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+              </div>
+              <div class="video-container">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/video/contoh2.mp4" type="video/mp4" />
+                  Browser Anda tidak mendukung tag video.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials-section" id="testimoni">
+        <h2 class="section-title">Testimoni Mitra Kami</h2>
+        <div class="testimonials-slider-wrapper">
+          <div class="testimonials-grid">
+            <div class="testimonial-card" data-testimonial-id="t1">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
+                  alt="Fender Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                Avo saved my sanity when juggling our tracking plans. We now
+                generate analytics within minutes of a new feature launch
+                because of the pre-work we've done in Avo.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=claire"
+                  alt="Claire Armstrong"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Claire Armstrong</h4>
+                  <p>Director of Digital Product</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-testimonial-id="t2">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
+                  alt="Culture Amp Logo"
+                  class="company-logo"
+                  style="filter: invert(1)"
+                />
+              </div>
+              <p class="quote-text">
+                Buying Avo was possibly the most impactful decision I've made. I
+                don't know how product companies do any analytics without Avo.
+                It's become the foundation of our analytics.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=nicholas"
+                  alt="Nicholas Threapleton"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Nicholas Threapleton</h4>
+                  <p>Lead Product Analyst</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-testimonial-id="t3">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
+                  alt="Zenbusiness Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                The best data governance platform for your analytics events.
+                Overall I'm very happy with the product and our data quality
+                improves on a daily basis.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=tomi"
+                  alt="Tomi Keah"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Tomi Keah</h4>
+                  <p>Senior Data Analyst</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-testimonial-id="t1">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png"
+                  alt="Fender Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                Avo saved my sanity when juggling our tracking plans. We now
+                generate analytics within minutes of a new feature launch
+                because of the pre-work we've done in Avo.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=claire"
+                  alt="Claire Armstrong"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Claire Armstrong</h4>
+                  <p>Director of Digital Product</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-testimonial-id="t2">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg"
+                  alt="Culture Amp Logo"
+                  class="company-logo"
+                  style="filter: invert(1)"
+                />
+              </div>
+              <p class="quote-text">
+                Buying Avo was possibly the most impactful decision I've made. I
+                don't know how product companies do any analytics without Avo.
+                It's become the foundation of our analytics.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=nicholas"
+                  alt="Nicholas Threapleton"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Nicholas Threapleton</h4>
+                  <p>Lead Product Analyst</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-testimonial-id="t3">
+              <div class="card-header">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <img
+                  src="https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg"
+                  alt="Zenbusiness Logo"
+                  class="company-logo"
+                />
+              </div>
+              <p class="quote-text">
+                The best data governance platform for your analytics events.
+                Overall I'm very happy with the product and our data quality
+                improves on a daily basis.
+              </p>
+              <a href="#" class="review-link">Read More</a>
+              <div class="author-info">
+                <img
+                  src="https://i.pravatar.cc/150?u=tomi"
+                  alt="Tomi Keah"
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <h4>Tomi Keah</h4>
+                  <p>Senior Data Analyst</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section" id="artikel">
+        <div class="article-header">
+          <h2 class="title">Artikel</h2>
+        </div>
+        <div class="article-slider-wrapper">
+          <div class="article-slider" id="articleSlider">
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+
+            <div class="article-slide">
+              <div class="article-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop"
+                  alt="POS system"
+                  class="main-image"
+                />
+                <div class="info-box info-box-inventory">
+                  <div class="label">Inventory Stock</div>
+                  <div class="value">4,862</div>
+                </div>
+                <div class="info-box info-box-outofstock">
+                  <div class="label">Out of Stock</div>
+                  <div class="value">290</div>
+                </div>
+              </div>
+              <div class="article-content">
+                <h2 class="article-title">
+                  Unlocking Efficiency: The Power Of A Modern POS System
+                </h2>
+                <p class="article-excerpt">
+                  In today's fast-paced business landscape, efficiency is key to
+                  success. From local shops to large enterprises, businesses
+                  seek ways to streamline operations and enhance customer
+                  experience.
+                </p>
+                <a href="#" class="read-more-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col">
+            <img
+              src="assets/logo-compeny.webp"
+              alt="Mitrana.ID"
+              class="footer-logo"
+            />
+            <p>
+              Your premium partner for high-quality charcoal briquettes, ready
+              for global export. Clean energy for a better world.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#AboutUs">About Us</a></li>
+              <li><a href="#product">Product</a></li>
+              <li><a href="#mitra">Mitra</a></li>
+              <li><a href="#testimoni">Testimoni</a></li>
+              <li><a href="#artikel">Artikel</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p>
+              Grand Vivo Residence Jl. Lempung Perdana I Nomor C-3<br />
+              Surabaya, Indonesia<br />
+              <a href="mailto:contact@charcoalasia.com"
+                >contact@charcoalasia.com</a
+              >
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" target="_blank" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/cocobriquetteasia.id/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" target="_blank" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Mitrana.ID</p>
+        </div>
+      </footer>
     </div>
-  </div>
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script>
-    AOS.init({
-      once: false // Memastikan animasi berjalan setiap kali Anda scroll ke elemen tersebut
-    });
-  </script>
-  <script src="js/main.js"></script>
-</body>
+    <div id="testimonial-popup" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <div class="popup-top-info">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <img
+            id="popup-company-logo"
+            src=""
+            alt="Company Logo"
+            class="popup-company-logo"
+          />
+        </div>
+        <div class="popup-author-info">
+          <img id="popup-avatar" src="" alt="Avatar" class="popup-avatar" />
+          <div class="popup-author-details">
+            <h4 id="popup-name"></h4>
+            <p id="popup-title"></p>
+          </div>
+        </div>
+        <p id="popup-quote" class="popup-quote"></p>
+      </div>
+    </div>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script>
+      AOS.init({
+        once: false, // Memastikan animasi berjalan setiap kali Anda scroll ke elemen tersebut
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

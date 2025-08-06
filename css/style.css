@@ -480,14 +480,18 @@ body {
   margin-right: -40px;
 }
 [data-aos="slide-right"] {
-  transform: translateX(-100%); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kiri */
+  transform: translateX(
+    -100%
+  ); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kiri */
   opacity: 0; /* Mulai dari kondisi transparan */
   transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
 }
 
 /* Untuk elemen yang akan bergeser dari kanan ke kiri */
 [data-aos="slide-left"] {
-  transform: translateX(100%); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kanan */
+  transform: translateX(
+    100%
+  ); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kanan */
   opacity: 0; /* Mulai dari kondisi transparan */
   transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
 }
@@ -507,7 +511,7 @@ body {
 }
 .partner-card p {
   font-size: 0.8rem; /* Ukuran font lebih kecil agar muat */
-  line-height: 1.5; /* Jarak antar baris agar lebih mudah dibaca */
+  line-height: 1; /* Jarak antar baris agar lebih mudah dibaca */
   word-wrap: break-word; /* Memastikan kata yang panjang akan pindah baris */
   overflow-wrap: break-word; /* Alternatif untuk word-wrap */
   text-align: left; /* Teks rata kiri */
@@ -540,16 +544,13 @@ body {
 .partner-card[data-title] {
   cursor: pointer;
   text-align: center;
-  
 }
 
 /* Memberi isyarat bahwa deskripsi bisa diklik untuk kembali ke logo */
 .partner-card p {
   cursor: pointer;
   text-align: justify;
-  
 }
-
 
 @keyframes slideUpFadeIn {
   from {
@@ -570,8 +571,8 @@ body {
 
 /* Transisi fade out untuk logo saat menghilang */
 .partner-card.is-fading .logo-container {
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
 /* --- 2. SEKSI JADI MITRA KAMI (BECOME A PARTNER) --- */
@@ -646,8 +647,6 @@ body {
   display: block;
   border-radius: 20px;
 }
-
-
 
 /* --- 3. SEKSI TESTIMONI --- */
 .testimonials-section {
@@ -1368,6 +1367,17 @@ body {
   }
   .partners-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .partner-card .logo {
+    max-width: 100px; /* Sedikit lebih besar agar terlihat jelas */
+    height: auto;
+  }
+  .partner-card h3 {
+    font-size: 1rem;
+  }
+  .partner-card p {
+    font-size: 0.5rem; /* Ukuran font lebih kecil agar muat */
+    text-align: center;
   }
   .steps-container {
     flex-direction: column;
