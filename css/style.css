@@ -540,12 +540,18 @@ body {
 .partner-card[data-title] {
   cursor: pointer;
   text-align: center;
+  transition: opacity 0.3s ease-in-out; 
 }
 
 /* Memberi isyarat bahwa deskripsi bisa diklik untuk kembali ke logo */
 .partner-card p {
   cursor: pointer;
   text-align: justify;
+  transition: opacity 0.5s ease-in-out; 
+}
+
+.partner-card.is-fading {
+  opacity: 0;
 }
 
 /* --- 2. SEKSI JADI MITRA KAMI (BECOME A PARTNER) --- */
