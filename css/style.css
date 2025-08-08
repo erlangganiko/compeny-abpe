@@ -444,14 +444,16 @@ body {
 
 /* Mengatur kotak utama "MITRA KAMI" */
 .partner-card1 {
+  .partner-card1 {
   background-color: #fcf8f7;
   border: 2px solid #f0a97c;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Menyesuaikan lebar dengan grid */
-  height: 100%; /* Menyesuaikan tinggi dengan grid */
-  overflow: hidden;
+  width: 100%; 
+  height: 100%;
+  /* overflow: hidden; */ /* Baris ini dinonaktifkan */
+}
 }
 
 .partner-card1 h1 {
@@ -479,29 +481,7 @@ body {
   text-align: right;
   margin-right: -40px;
 }
-[data-aos="slide-right"] {
-  transform: translateX(
-    -100%
-  ); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kiri */
-  opacity: 0; /* Mulai dari kondisi transparan */
-  transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
-}
 
-/* Untuk elemen yang akan bergeser dari kanan ke kiri */
-[data-aos="slide-left"] {
-  transform: translateX(
-    100%
-  ); /* Pindahkan elemen sejauh 100% lebarnya sendiri ke kanan */
-  opacity: 0; /* Mulai dari kondisi transparan */
-  transition-property: transform, opacity; /* Animasikan properti transform dan opacity */
-}
-
-/* State saat animasi aktif (dikelola oleh AOS) */
-[data-aos="slide-right"].aos-animate,
-[data-aos="slide-left"].aos-animate {
-  transform: translateX(0); /* Kembali ke posisi normal */
-  opacity: 1; /* Kembali ke kondisi terlihat penuh */
-}
 
 .partner-card h3 {
   font-size: 1.5rem;
@@ -898,7 +878,7 @@ body {
   overflow-x: auto; /* Enables horizontal scrolling */
   scroll-snap-type: x mandatory; /* Ensures snapping to content */
   scroll-behavior: smooth; /* Smooth scrolling when snapping or programmatically */
-  gap: 20px; /* Space between each article slide */
+  gap: 30px; /* Space between each article slide */
   padding: 0 20px 20px; /* Top/Bottom 0, Left/Right 20px, Bottom for scrollbar */
   -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS devices */
 
@@ -1441,7 +1421,7 @@ body {
     scroll-snap-align: start; /* Snap to start for better navigation on mobile */
   }
   .article-slider {
-    gap: 15px; /* Slightly reduced gap on mobile */
+    gap: 25px; /* Slightly reduced gap on mobile */
     padding: 0 15px 20px; /* Adjust padding for mobile view */
   }
 
