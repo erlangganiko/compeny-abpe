@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Claire Armstrong",
       title: "Director of Digital Product",
       quote: "Avo saved my sanity when juggling our tracking plans. We now generate analytics within minutes of a new feature launch because of the pre-work we've done in Avo.",
-      companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fender_Telecaster_logo.svg/1280px-Fender_Telecaster_logo.svg.png",
+      companyLogo: "assets/ABPE-Logo.webp",
       companyLogoFilter: "", // Kosongkan jika tidak ada filter
     },
     t2: {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Nicholas Threapleton",
       title: "Lead Product Analyst",
       quote: "Buying Avo was possibly the most impactful decision I've made. I don't know how product companies do any analytics without Avo. It's become the foundation of our analytics.",
-      companyLogo: "https://assets-global.website-files.com/620691a5554dd8449c235b53/620699478cc55d37613c1265_horizontal-logo-grey.svg",
+      companyLogo: "assets/ABPE-Logo.webp",
       companyLogoFilter: "invert(1)",
     },
     t3: {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Tomi Keah",
       title: "Senior Data Analyst",
       quote: "The best data governance platform for your analytics events. Overall I'm very happy with the product and our data quality improves on a daily basis.",
-      companyLogo: "https://assets-global.website-files.com/634681ce262a8a56b3e1b9b1/636b1368623545625c56d773_Wordmark_White_Large.svg",
+      companyLogo: "assets/ABPE-Logo.webp",
       companyLogoFilter: "",
     },
   };
@@ -39,15 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById("loading-screen");
   const mainContent = document.getElementById("main-content");
 
-  if (loadingScreen && mainContent) {
+  // ...
+if (loadingScreen && mainContent) {
     // Atur waktu tampil loading screen (misal: 2 detik)
     setTimeout(() => {
       loadingScreen.classList.add("hidden");
       // Tampilkan konten utama dengan efek fade-in sederhana
       mainContent.style.display = "block";
       mainContent.style.animation = "fadeIn 0.5s ease-in-out";
+
+      // TAMBAHKAN BARIS INI: Perintahkan AOS untuk memeriksa ulang posisi elemen
+      AOS.refresh(); 
+      
     }, 1000); // 2000 milidetik = 2 detik
-  }
+}
+// ...
 
   // Tambahkan keyframes untuk animasi fadeIn ke dalam style
   const style = document.createElement("style");
