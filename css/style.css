@@ -877,10 +877,10 @@ body {
   overflow-x: auto; /* Enables horizontal scrolling */
   scroll-snap-type: x mandatory; /* Ensures snapping to content */
   scroll-behavior: smooth; /* Smooth scrolling when snapping or programmatically */
-  gap: 30px; /* Space between each article slide */
-  padding: 0 20px 20px; /* Top/Bottom 0, Left/Right 20px, Bottom for scrollbar */
+  gap: 35px; /* Space between each article slide */
+  padding: 0 40px 20px; /* Top/Bottom 0, Left/Right 20px, Bottom for scrollbar */
   -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS devices */
-
+  margin-left: 50px;
   /* Hide scrollbar for Firefox */
   scrollbar-width: none; /* */
 }
